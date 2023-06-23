@@ -1,0 +1,16 @@
+type AerodromeStatus @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  piste_active: Int
+  arff: String
+  act_aviaire_locale: String
+  sar_statut: String
+  sar_statut_ytr: String
+  champ_tir_9mm: String
+  champ_planeur: String
+  circuit: String
+  act_aviaire_migratoire: String
+  base_rescue: String
+  sar_statut_yzx: String
+  grande_anse: String
+  remarques: String
+}
