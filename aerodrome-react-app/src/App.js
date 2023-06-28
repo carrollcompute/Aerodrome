@@ -1,19 +1,24 @@
-
+import logo from './logo.svg';
 import './App.css';
-import AerodromeStatus from './AerodromeStatus';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { AerodromeStatusForm } from './ui-components';
 
 function App() {
   return (
-    <div className="app-container">
-    <Router>
-      <Routes>
-        <Route path="/" element={<AerodromeStatus />} />
-        <Route path="/status-form" element={<AerodromeStatusForm AerodromeStatus={/*an existing %data model% record */}/>}/>
-      </Routes>
-    </Router>
-  </div>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
 
