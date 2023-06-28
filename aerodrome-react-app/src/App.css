@@ -1,3 +1,58 @@
+body {
+  background-color: #09305b; /* Blue background color */
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh; /* Ensure the app fills the entire viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.field-label {
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-bottom: 0;
+}
+
+.field-data {
+  display: inline-block;
+  margin: 0;
+  margin-bottom: 0;
+}
+
+
+.App-header {
+  background-color: #282c34;
+  padding: 10px;
+}
+
+.App-header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.App-header nav {
+  margin-top: 10px;
+}
+
+.App-header nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.App-header nav a:hover {
+  text-decoration: underline;
+}
+
 .App {
   text-align: center;
 }

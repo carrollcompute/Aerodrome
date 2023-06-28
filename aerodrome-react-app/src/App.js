@@ -1,9 +1,11 @@
-import React from 'react';
-import { API } from 'aws-amplify';
-import { BrowserRouter as Router, Route, Routes, Link, Outlet } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { API, graphqlOperation } from 'aws-amplify';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
-import Aerodrome from './components/Aerodrome';
+import { listAerodromeTables } from './graphql/queries';
 import UpdateForm from './components/UpdateForm';
+
+
 
 // Warning! API Configuration needs to be hidden
 const awsconfig = {
@@ -18,24 +20,77 @@ const awsconfig = {
 API.configure(awsconfig);
 
 function App() {
+  const [aerodromeTable, setAerodromeTable] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchAerodromeTable = async () => {
+      try {
+        const response = await API.graphql(graphqlOperation(listAerodromeTables));
+        const aerodromeTables = response.data.listAerodromeTables.items;
+        if (aerodromeTables.length > 0) {
+          setAerodromeTable(aerodromeTables[0]);
+        }
+      } catch (error) {
+        console.error('Error fetching aerodromeTable', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchAerodromeTable();
+  }, []);
+
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          {/* Rest of the code */}
-          <nav>
-                <Aerodrome />
-          </nav>
-        </header>
 
         <Routes>
-          <Route path="/update" element={<UpdateForm />}>
-          </Route>
-          <Route path="*" element={<h1>Page not found</h1>} /> {/* New Route */}
+          <Route path="/" element={isLoading ? <p>Loading...</p> : <AerodromeTable aerodromeTable={aerodromeTable} />} />
+          <Route path="/update" element={isLoading ? <p>Loading...</p> : <UpdateForm aerodromeTable={aerodromeTable} />} />
         </Routes>
       </div>
     </Router>
   );
 }
+
+const AerodromeTable = ({ aerodromeTable }) => {
+  if (aerodromeTable) {
+    const tableFields = [
+      { label: 'Piste Active:', data: aerodromeTable.piste_active },
+      { label: 'Act Aviaire Locale:', data: aerodromeTable.act_aviaire_locale },
+      { label: 'Act Aviaire Migratoire:', data: aerodromeTable.act_aviaire_migratoire },
+      { label: 'ARFF:', data: aerodromeTable.arff },
+      { label: 'SAR Statut:', data: aerodromeTable.sar_statut },
+      { label: 'SAR Statut YTR:', data: aerodromeTable.sar_statut_ytr },
+      { label: 'Champ Tir 9mm:', data: aerodromeTable.champ_tir_9mm },
+      { label: 'Champ Planeur:', data: aerodromeTable.champ_planeur },
+      { label: 'Circuit:', data: aerodromeTable.circuit },
+      { label: 'Base Rescue:', data: aerodromeTable.base_rescue },
+      { label: 'SAR Statut YZX:', data: aerodromeTable.sar_statut_yzx },
+      { label: 'Grande Anse:', data: aerodromeTable.grande_anse },
+      { label: 'Remarques:', data: aerodromeTable.remarques },
+      { label: 'Created At:', data: aerodromeTable.createdAt },
+      { label: 'Updated At:', data: aerodromeTable.updatedAt },
+    ];
+    return (
+      <div>
+        <h1>Aerodrome Table</h1>
+        <div className="table-data">
+          {tableFields.map((field, index) => (
+            <div key={index} style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <div className="field-label">{field.label}</div>
+              <div className="field-data">{field.data}</div>
+            </div> 
+          ))}
+        </div>
+        <Link to="/update">Update</Link>
+      </div>
+    );
+  } else {
+    return <p>No aerodrome table data available.</p>;
+  }
+};
+
 
 export default App;
