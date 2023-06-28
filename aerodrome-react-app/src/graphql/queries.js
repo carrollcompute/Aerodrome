@@ -37,6 +37,36 @@ export const listPIREPSTables = /* GraphQL */ `
     }
   }
 `;
+export const pIREPSTablesByAerodrometableID = /* GraphQL */ `
+  query PIREPSTablesByAerodrometableID(
+    $aerodrometableID: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelPIREPSTableFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    pIREPSTablesByAerodrometableID(
+      aerodrometableID: $aerodrometableID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        temps_recu
+        details
+        type_avion
+        aerodrometableID
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
 export const getCablesTable = /* GraphQL */ `
   query GetCablesTable($id: ID!) {
     getCablesTable(id: $id) {
@@ -79,6 +109,39 @@ export const listCablesTables = /* GraphQL */ `
     }
   }
 `;
+export const cablesTablesByAerodrometableID = /* GraphQL */ `
+  query CablesTablesByAerodrometableID(
+    $aerodrometableID: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelCablesTableFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    cablesTablesByAerodrometableID(
+      aerodrometableID: $aerodrometableID
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        asr
+        ssr
+        par
+        ils
+        tacan
+        ndb
+        aerodrometableID
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
 export const getPisteConditionTable = /* GraphQL */ `
   query GetPisteConditionTable($id: ID!) {
     getPisteConditionTable(id: $id) {
@@ -101,6 +164,37 @@ export const listPisteConditionTables = /* GraphQL */ `
     $nextToken: String
   ) {
     listPisteConditionTables(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        piste
+        condition
+        crfi
+        precision
+        aerodrometableID
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;
+export const pisteConditionTablesByAerodrometableID = /* GraphQL */ `
+  query PisteConditionTablesByAerodrometableID(
+    $aerodrometableID: ID!
+    $sortDirection: ModelSortDirection
+    $filter: ModelPisteConditionTableFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    pisteConditionTablesByAerodrometableID(
+      aerodrometableID: $aerodrometableID
+      sortDirection: $sortDirection
       filter: $filter
       limit: $limit
       nextToken: $nextToken
@@ -224,100 +318,6 @@ export const listAerodromeTables = /* GraphQL */ `
           nextToken
           __typename
         }
-        createdAt
-        updatedAt
-        __typename
-      }
-      nextToken
-      __typename
-    }
-  }
-`;
-export const pIREPSTablesByAerodrometableID = /* GraphQL */ `
-  query PIREPSTablesByAerodrometableID(
-    $aerodrometableID: ID!
-    $sortDirection: ModelSortDirection
-    $filter: ModelPIREPSTableFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    pIREPSTablesByAerodrometableID(
-      aerodrometableID: $aerodrometableID
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        temps_recu
-        details
-        type_avion
-        aerodrometableID
-        createdAt
-        updatedAt
-        __typename
-      }
-      nextToken
-      __typename
-    }
-  }
-`;
-export const cablesTablesByAerodrometableID = /* GraphQL */ `
-  query CablesTablesByAerodrometableID(
-    $aerodrometableID: ID!
-    $sortDirection: ModelSortDirection
-    $filter: ModelCablesTableFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    cablesTablesByAerodrometableID(
-      aerodrometableID: $aerodrometableID
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        asr
-        ssr
-        par
-        ils
-        tacan
-        ndb
-        aerodrometableID
-        createdAt
-        updatedAt
-        __typename
-      }
-      nextToken
-      __typename
-    }
-  }
-`;
-export const pisteConditionTablesByAerodrometableID = /* GraphQL */ `
-  query PisteConditionTablesByAerodrometableID(
-    $aerodrometableID: ID!
-    $sortDirection: ModelSortDirection
-    $filter: ModelPisteConditionTableFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    pisteConditionTablesByAerodrometableID(
-      aerodrometableID: $aerodrometableID
-      sortDirection: $sortDirection
-      filter: $filter
-      limit: $limit
-      nextToken: $nextToken
-    ) {
-      items {
-        id
-        piste
-        condition
-        crfi
-        precision
-        aerodrometableID
         createdAt
         updatedAt
         __typename
