@@ -112,35 +112,6 @@ function App() {
   );
 }
 
-const CablesTables = ({ cablesTables }) => {
-  if (cablesTables.length > 0) {
-    console.log(cablesTables);
-    return (
-      <table className="table-data">
-        <thead>
-          <tr>
-            <th className="field-label">Cable</th>
-            <th className="field-label">Condition</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cablesTables.map((cablesTable, index) => (
-            <tr key={index}>
-              <td className="field-data bold">{cablesTable.name}</td>
-              <td className="field-data">{cablesTable.Condition}</td>
-              <td className="field-data">{cablesTable.crfi}</td>
-              <td className="field-data">{cablesTable.precision}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    );
-  } else {
-    return <p>No cables tables data available.</p>;
-  }
-};
-
-
 const AerodromeTable = ({ aerodromeTable }) => {
   if (aerodromeTable) {
     const aerodromeFields = [
@@ -179,6 +150,38 @@ const AerodromeTable = ({ aerodromeTable }) => {
     return <p>No aerodrome table data available.</p>;
   }
 };
+
+const CablesTables = ({ cablesTables }) => {
+  if (cablesTables.length > 0) {
+    console.log(cablesTables);
+    return (
+      <table className="table-data">
+        <thead>
+          <tr>
+            <th className="field-label">Cable</th>
+            <th className="field-label">Condition</th>
+            <th className="field-label">CRFI</th>
+            <th className="field-label">Precision</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cablesTables.map((cablesTable, index) => (
+            <tr key={index}>
+              <td className="field-data bold">{cablesTable.name}</td>
+              <td className="field-data">{cablesTable.Condition}</td>
+              <td className="field-data">{cablesTable.crfi}</td>
+              <td className="field-data">{cablesTable.precision}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  } else {
+    return <p>No cables tables data available.</p>;
+  }
+};
+
+
 
 const PisteConditionTables = ({ pisteConditionTables }) => {
   if (pisteConditionTables.length > 0) {
