@@ -1,5 +1,12 @@
 /* UpdateForm.css */
 
+
+.aerodrome-table{
+  float:left;
+  font-weight: bold;
+  font-size: 21px;
+}
+
 .update-form {
     margin-top: 20px;
     

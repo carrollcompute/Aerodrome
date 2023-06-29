@@ -1,6 +1,24 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+/*
+createPIREPSTable
+updatePIREPSTable
+deletePIREPSTable
+
+createCablesTable
+updateCablesTable
+deleteCablesTable
+
+createPisteConditionTable
+updatePisteConditionTable
+deletePisteConditionTable
+
+createAerodromeTable
+updateAerodromeTable
+deleteAerodromeTable
+*/
+
 export const createPIREPSTable = /* GraphQL */ `
   mutation CreatePIREPSTable(
     $input: CreatePIREPSTableInput!

@@ -24,12 +24,21 @@
 | 22.  | Wait for Amplify to provision the database and API.          |  x        |          |
 | 23.  | Navigate to the root of your React project.                 |    x      |          |
 | 24.  | Run `amplify pull --appId <yourAppId> --envName <yourEnvName>` to update the backend configuration. |  x       |          |
-| 25.  | Use AWS Amplify libraries to connect to your backend services in your React app. |          |          |
-| 26.  | Push your changes to your GitHub repository.                 |          |          |
-| 27.  | Wait for AWS Amplify to detect and deploy the changes.      |          |          |
+| 25.  | Use AWS Amplify libraries to connect to your backend services in your React app. |     x     |          |
+| 26.  | Push your changes to your GitHub repository.                 |    x      |          |
+| 27.  | Wait for AWS Amplify to detect and deploy the changes.      |    x     |          |
 
 
 
+//////////////////////////////////////////////////////////////////
 
-GraphQL endpoint: https://7ssnermwcvchbiu5yjf2e5x6ze.appsync-api.us-east-2.amazonaws.com/graphql
-GraphQL API KEY: da2-62ncw563ajbtbbnmcsyr4hickm
+
+- [ X ] // TODO:  Update the button functionality to bring the user back to the home route.
+- [ ] // TODO:  upload aerodrome photo.
+- [ ] // TODO:  Insert the remaining tables into the database.
+- [ ] // TODO:  Add functionality to insert a photo into the database.
+- [ ] // TODO:  Format the aerodrome display for better visual presentation.
+
+Repeat process for UpdateForm:
+- [ ] // TODO:  Insert the remaining tables into the database.
+- [ ] // TODO:  Format the UpdateForm for better user experience.

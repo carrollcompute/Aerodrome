@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 import { listAerodromeTables } from './graphql/queries';
 import UpdateForm from './components/UpdateForm';
-
+import { useNavigate } from 'react-router-dom';
+import aerodrome_img from './aerodrome.png';
 
 
 // Warning! API Configuration needs to be hidden
@@ -41,6 +42,8 @@ function App() {
     fetchAerodromeTable();
   }, []);
 
+  
+
   return (
     <Router>
       <div className="App">
@@ -55,6 +58,10 @@ function App() {
 }
 
 const AerodromeTable = ({ aerodromeTable }) => {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {navigate('/update');};
+  
   if (aerodromeTable) {
     const tableFields = [
       { label: 'Piste Active:', data: aerodromeTable.piste_active },
@@ -73,18 +80,28 @@ const AerodromeTable = ({ aerodromeTable }) => {
       { label: 'Created At:', data: aerodromeTable.createdAt },
       { label: 'Updated At:', data: aerodromeTable.updatedAt },
     ];
+    
+
     return (
       <div>
-        <h1>Aerodrome Table</h1>
-        <div className="table-data">
-          {tableFields.map((field, index) => (
-            <div key={index} style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <div className="field-label">{field.label}</div>
-              <div className="field-data">{field.data}</div>
-            </div> 
-          ))}
+        <div className="tables-wrapper">
+          <h1>Aerodrome Table</h1>
+
+          <div className="table-container">
+            <table className="table-data">
+              <tbody>
+                {tableFields.map((field, index) => (
+                  <tr key={index}>
+                    <td className="field-label">{field.label}</td>
+                    <td className="field-data">{field.data}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <img src={aerodrome_img} alt="Nothing" className="aerodrome-img" />
+          </div>         
+          <button type="submit" onClick={handleButtonClick}>Update</button>
         </div>
-        <Link to="/update">Update</Link>
       </div>
     );
   } else {
