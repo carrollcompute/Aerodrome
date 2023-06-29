@@ -2,5 +2,5 @@
   "AppSyncApiName": "aerodrome",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false,
-  "AuthModeLastUpdated": "2023-06-28T05:07:18.939Z"
+  "AuthModeLastUpdated": "2023-06-29T04:09:02.467Z"
 }

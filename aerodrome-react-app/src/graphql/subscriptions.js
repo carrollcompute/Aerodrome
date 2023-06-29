@@ -55,12 +55,8 @@ export const onCreateCablesTable = /* GraphQL */ `
   ) {
     onCreateCablesTable(filter: $filter) {
       id
-      asr
-      ssr
-      par
-      ils
-      tacan
-      ndb
+      name
+      Condition
       aerodrometableID
       createdAt
       updatedAt
@@ -74,12 +70,8 @@ export const onUpdateCablesTable = /* GraphQL */ `
   ) {
     onUpdateCablesTable(filter: $filter) {
       id
-      asr
-      ssr
-      par
-      ils
-      tacan
-      ndb
+      name
+      Condition
       aerodrometableID
       createdAt
       updatedAt
@@ -93,12 +85,8 @@ export const onDeleteCablesTable = /* GraphQL */ `
   ) {
     onDeleteCablesTable(filter: $filter) {
       id
-      asr
-      ssr
-      par
-      ils
-      tacan
-      ndb
+      name
+      Condition
       aerodrometableID
       createdAt
       updatedAt
@@ -179,12 +167,8 @@ export const onCreateAerodromeTable = /* GraphQL */ `
       CablesTables {
         items {
           id
-          asr
-          ssr
-          par
-          ils
-          tacan
-          ndb
+          name
+          Condition
           aerodrometableID
           createdAt
           updatedAt
@@ -250,12 +234,8 @@ export const onUpdateAerodromeTable = /* GraphQL */ `
       CablesTables {
         items {
           id
-          asr
-          ssr
-          par
-          ils
-          tacan
-          ndb
+          name
+          Condition
           aerodrometableID
           createdAt
           updatedAt
@@ -321,12 +301,8 @@ export const onDeleteAerodromeTable = /* GraphQL */ `
       CablesTables {
         items {
           id
-          asr
-          ssr
-          par
-          ils
-          tacan
-          ndb
+          name
+          Condition
           aerodrometableID
           createdAt
           updatedAt

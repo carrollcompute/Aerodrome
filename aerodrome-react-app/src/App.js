@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
 import './App.css';
-import { listAerodromeTables } from './graphql/queries';
+import { listAerodromeTables, listCablesTables } from './graphql/queries';
 import UpdateForm from './components/UpdateForm';
-import { useNavigate } from 'react-router-dom';
 import aerodrome_img from './aerodrome.png';
-
 
 // Warning! API Configuration needs to be hidden
 const awsconfig = {
@@ -17,39 +15,70 @@ const awsconfig = {
   "aws_appsync_apiKey": "da2-62ncw563ajbtbbnmcsyr4hickm"
 };
 
-
 API.configure(awsconfig);
+
+const UpdateButton = () => {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate('/update');
+  };
+
+  return (
+    <button type="button" onClick={handleButtonClick}>
+      Update
+    </button>
+  );
+};
 
 function App() {
   const [aerodromeTable, setAerodromeTable] = useState(null);
+  const [cablesTables, setCablesTables] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchAerodromeTable = async () => {
+    const fetchData = async () => {
       try {
-        const response = await API.graphql(graphqlOperation(listAerodromeTables));
-        const aerodromeTables = response.data.listAerodromeTables.items;
+        const aerodromeresponse = await API.graphql(graphqlOperation(listAerodromeTables));
+        const aerodromeTables = aerodromeresponse.data.listAerodromeTables.items;
         if (aerodromeTables.length > 0) {
           setAerodromeTable(aerodromeTables[0]);
         }
+
+        const cablesTablesResponse = await API.graphql(graphqlOperation(listCablesTables));
+        console.log(cablesTablesResponse.data);
+        const cablesTablesData = cablesTablesResponse.data.listCablesTables.items;
+        console.log(cablesTablesData);
+        setCablesTables(cablesTablesData);
       } catch (error) {
-        console.error('Error fetching aerodromeTable', error);
+        console.error('Error fetching Tables', error);
       } finally {
         setIsLoading(false);
       }
     };
 
-    fetchAerodromeTable();
+    fetchData();
   }, []);
-
-  
 
   return (
     <Router>
       <div className="App">
-
         <Routes>
-          <Route path="/" element={isLoading ? <p>Loading...</p> : <AerodromeTable aerodromeTable={aerodromeTable} />} />
+          <Route
+            path="/"
+            element={
+              isLoading ? (
+                <p>Loading...</p>
+              ) : (
+                <>
+                  <AerodromeTable aerodromeTable={aerodromeTable} />
+                  <img src={aerodrome_img} alt="Nothing" className="aerodrome-img" />
+                  <CablesTables cablesTables={cablesTables} />
+                  <UpdateButton />
+                </>
+              )
+            }
+          />
           <Route path="/update" element={isLoading ? <p>Loading...</p> : <UpdateForm aerodromeTable={aerodromeTable} />} />
         </Routes>
       </div>
@@ -57,13 +86,35 @@ function App() {
   );
 }
 
-const AerodromeTable = ({ aerodromeTable }) => {
-  const navigate = useNavigate();
+const CablesTables = ({ cablesTables }) => {
+  if (cablesTables.length > 0) {
+    console.log(cablesTables);
+    return (
+      <>
+        {cablesTables.map((cablesTable, index) => (
+          <table className="table-data" key={index}>
+            <tbody>
+              <tr>
+                <td className="field-label">Cable:</td>
+                <td className="field-data">{cablesTable.name}</td>
+              </tr>
+              <tr>
+                <td className="field-label">Condition:</td>
+                <td className="field-data">{cablesTable.Condition}</td>
+              </tr>
+            </tbody>
+          </table>
+        ))}
+      </>
+    );
+  } else {
+    return <p>No cables tables data available.</p>;
+  }
+};
 
-  const handleButtonClick = () => {navigate('/update');};
-  
+const AerodromeTable = ({ aerodromeTable }) => {
   if (aerodromeTable) {
-    const tableFields = [
+    const aerodromeFields = [
       { label: 'Piste Active:', data: aerodromeTable.piste_active },
       { label: 'Act Aviaire Locale:', data: aerodromeTable.act_aviaire_locale },
       { label: 'Act Aviaire Migratoire:', data: aerodromeTable.act_aviaire_migratoire },
@@ -80,17 +131,16 @@ const AerodromeTable = ({ aerodromeTable }) => {
       { label: 'Created At:', data: aerodromeTable.createdAt },
       { label: 'Updated At:', data: aerodromeTable.updatedAt },
     ];
-    
 
     return (
       <div>
         <div className="tables-wrapper">
-          <h1>Aerodrome Table</h1>
 
           <div className="table-container">
             <table className="table-data">
+              <h1>Aerodrome</h1>
               <tbody>
-                {tableFields.map((field, index) => (
+                {aerodromeFields.map((field, index) => (
                   <tr key={index}>
                     <td className="field-label">{field.label}</td>
                     <td className="field-data">{field.data}</td>
@@ -98,9 +148,7 @@ const AerodromeTable = ({ aerodromeTable }) => {
                 ))}
               </tbody>
             </table>
-            <img src={aerodrome_img} alt="Nothing" className="aerodrome-img" />
-          </div>         
-          <button type="submit" onClick={handleButtonClick}>Update</button>
+          </div>
         </div>
       </div>
     );
@@ -108,6 +156,5 @@ const AerodromeTable = ({ aerodromeTable }) => {
     return <p>No aerodrome table data available.</p>;
   }
 };
-
 
 export default App;

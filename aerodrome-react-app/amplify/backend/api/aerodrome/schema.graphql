@@ -1,7 +1,3 @@
-input AMPLIFY {
-  globalAuthRule: AuthRule = {allow: public}
-}
-
 type PIREPSTable @model @auth(rules: [{allow: public}]) {
   id: ID!
   temps_recu: AWSDateTime
@@ -12,12 +8,8 @@ type PIREPSTable @model @auth(rules: [{allow: public}]) {
 
 type CablesTable @model @auth(rules: [{allow: public}]) {
   id: ID!
-  asr: String
-  ssr: String
-  par: String
-  ils: String
-  tacan: String
-  ndb: String
+  name: String
+  Condition: String
   aerodrometableID: ID! @index(name: "byAerodromeTable")
 }
 
@@ -48,4 +40,5 @@ type AerodromeTable @model @auth(rules: [{allow: public}]) {
   CablesTables: [CablesTable] @hasMany(indexName: "byAerodromeTable", fields: ["id"])
   PIREPSTables: [PIREPSTable] @hasMany(indexName: "byAerodromeTable", fields: ["id"])
   PisteConditionTables: [PisteConditionTable] @hasMany(indexName: "byAerodromeTable", fields: ["id"])
-} 
+}
+ 

@@ -71,12 +71,8 @@ export const getCablesTable = /* GraphQL */ `
   query GetCablesTable($id: ID!) {
     getCablesTable(id: $id) {
       id
-      asr
-      ssr
-      par
-      ils
-      tacan
-      ndb
+      name
+      Condition
       aerodrometableID
       createdAt
       updatedAt
@@ -93,12 +89,8 @@ export const listCablesTables = /* GraphQL */ `
     listCablesTables(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        asr
-        ssr
-        par
-        ils
-        tacan
-        ndb
+        name
+        Condition
         aerodrometableID
         createdAt
         updatedAt
@@ -126,12 +118,8 @@ export const cablesTablesByAerodrometableID = /* GraphQL */ `
     ) {
       items {
         id
-        asr
-        ssr
-        par
-        ils
-        tacan
-        ndb
+        name
+        Condition
         aerodrometableID
         createdAt
         updatedAt
@@ -235,12 +223,8 @@ export const getAerodromeTable = /* GraphQL */ `
       CablesTables {
         items {
           id
-          asr
-          ssr
-          par
-          ils
-          tacan
-          ndb
+          name
+          Condition
           aerodrometableID
           createdAt
           updatedAt

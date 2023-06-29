@@ -1,24 +1,6 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-/*
-createPIREPSTable
-updatePIREPSTable
-deletePIREPSTable
-
-createCablesTable
-updateCablesTable
-deleteCablesTable
-
-createPisteConditionTable
-updatePisteConditionTable
-deletePisteConditionTable
-
-createAerodromeTable
-updateAerodromeTable
-deleteAerodromeTable
-*/
-
 export const createPIREPSTable = /* GraphQL */ `
   mutation CreatePIREPSTable(
     $input: CreatePIREPSTableInput!
@@ -77,12 +59,8 @@ export const createCablesTable = /* GraphQL */ `
   ) {
     createCablesTable(input: $input, condition: $condition) {
       id
-      asr
-      ssr
-      par
-      ils
-      tacan
-      ndb
+      name
+      Condition
       aerodrometableID
       createdAt
       updatedAt
@@ -97,12 +75,8 @@ export const updateCablesTable = /* GraphQL */ `
   ) {
     updateCablesTable(input: $input, condition: $condition) {
       id
-      asr
-      ssr
-      par
-      ils
-      tacan
-      ndb
+      name
+      Condition
       aerodrometableID
       createdAt
       updatedAt
@@ -117,12 +91,8 @@ export const deleteCablesTable = /* GraphQL */ `
   ) {
     deleteCablesTable(input: $input, condition: $condition) {
       id
-      asr
-      ssr
-      par
-      ils
-      tacan
-      ndb
+      name
+      Condition
       aerodrometableID
       createdAt
       updatedAt
@@ -207,12 +177,8 @@ export const createAerodromeTable = /* GraphQL */ `
       CablesTables {
         items {
           id
-          asr
-          ssr
-          par
-          ils
-          tacan
-          ndb
+          name
+          Condition
           aerodrometableID
           createdAt
           updatedAt
@@ -279,12 +245,8 @@ export const updateAerodromeTable = /* GraphQL */ `
       CablesTables {
         items {
           id
-          asr
-          ssr
-          par
-          ils
-          tacan
-          ndb
+          name
+          Condition
           aerodrometableID
           createdAt
           updatedAt
@@ -351,12 +313,8 @@ export const deleteAerodromeTable = /* GraphQL */ `
       CablesTables {
         items {
           id
-          asr
-          ssr
-          par
-          ils
-          tacan
-          ndb
+          name
+          Condition
           aerodrometableID
           createdAt
           updatedAt
