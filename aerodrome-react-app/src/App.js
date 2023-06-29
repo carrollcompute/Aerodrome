@@ -5,6 +5,8 @@ import './App.css';
 import { listAerodromeTables, listCablesTables, listPisteConditionTables } from './graphql/queries';
 import UpdateForm from './components/UpdateForm';
 import aerodrome_img from './aerodrome.png';
+import { Helmet } from 'react-helmet';
+
 
 // Warning! API Configuration needs to be hidden
 const awsconfig = {
@@ -70,7 +72,12 @@ function App() {
   }, []);
 
   return (
+    
     <Router>
+      <Helmet>
+        <title>Aerodrome</title>
+        <link rel="icon" type="image/png" href="path/to/your/icon.png" />
+      </Helmet>
       <div className="App">
         <Routes>
           <Route
@@ -80,13 +87,20 @@ function App() {
                 <p>Loading...</p>
               ) : (
                 <>
-                  <AerodromeTable aerodromeTable={aerodromeTable} />
-                  <img src={aerodrome_img} alt="Nothing" className="aerodrome-img" />
-                  <div className="side-tables">
-                    <CablesTables cablesTables={cablesTables} />
-                    <PisteConditionTables pisteConditionTables={pisteConditionTables} />
+                  <div className="vertical-group">
+                    <h1>Aerodome</h1>
+                    
+                    <div className="center">
+                      <AerodromeTable aerodromeTable={aerodromeTable} />
+                      <img src={aerodrome_img} alt="Aerodrome Image" className="aerodrome-img" />
+                      <div className="small-group">
+                        <CablesTables cablesTables={cablesTables} />
+                        <PisteConditionTables pisteConditionTables={pisteConditionTables} />
+                      </div>
+                    </div>
+
+                    <UpdateButton />
                   </div>
-                  <UpdateButton />
                 </>
               )
             }
@@ -112,8 +126,10 @@ const CablesTables = ({ cablesTables }) => {
         <tbody>
           {cablesTables.map((cablesTable, index) => (
             <tr key={index}>
-              <td className="field-data">{cablesTable.name}</td>
+              <td className="field-data bold">{cablesTable.name}</td>
               <td className="field-data">{cablesTable.Condition}</td>
+              <td className="field-data">{cablesTable.crfi}</td>
+              <td className="field-data">{cablesTable.precision}</td>
             </tr>
           ))}
         </tbody>
@@ -147,19 +163,16 @@ const AerodromeTable = ({ aerodromeTable }) => {
 
     return (
       <div>
-        <div className="tables-wrapper">
-          <h1>Aerodrome</h1>
-          <table className="table-data">
-            <tbody>
-              {aerodromeFields.map((field, index) => (
-                <tr key={index}>
-                  <td className="field-label">{field.label}</td>
-                  <td className="field-data">{field.data}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <table className="table-data">
+          <tbody>
+            {aerodromeFields.map((field, index) => (
+              <tr key={index}>
+                <td className="field-label">{field.label}</td>
+                <td className="field-data">{field.data}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   } else {
