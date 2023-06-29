@@ -6,6 +6,7 @@ import { listAerodromeTables, listCablesTables, listPisteConditionTables } from 
 import UpdateForm from './components/UpdateForm';
 import aerodrome_img from './aerodrome.png';
 import { Helmet } from 'react-helmet';
+import { DataProvider } from './DataContext';
 
 
 // Warning! API Configuration needs to be hidden
@@ -72,64 +73,65 @@ function App() {
   }, []);
 
   return (
-    
-    <Router>
-      <Helmet>
-        <title>Aerodrome</title>
-        <link rel="icon" type="image/png" href="path/to/your/icon.png" />
-      </Helmet>
-      <div className="App">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              isLoading ? (
-                <p>Loading...</p>
-              ) : (
-                <>
-                  <div className="vertical-group">
-                    <h1>Aerodome</h1>
-                    
-                    <div className="center">
-                      <AerodromeTable aerodromeTable={aerodromeTable} />
-                      <img src={aerodrome_img} alt="Aerodrome Image" className="aerodrome-img" />
-                      <div className="small-group">
-                        <CablesTables cablesTables={cablesTables} />
-                        <PisteConditionTables pisteConditionTables={pisteConditionTables} />
+    <DataProvider>
+      <Router>
+        <Helmet>
+          <title>Aerodrome</title>
+          <link rel="icon" type="image/png" href="path/to/your/icon.png" />
+        </Helmet>
+        <div className="App">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                isLoading ? (
+                  <p>Loading...</p>
+                ) : (
+                  <>
+                    <div className="vertical-group">
+                      <h1>Aerodome</h1>
+                      
+                      <div className="center">
+                        <AerodromeTable aerodromeTable={aerodromeTable} />
+                        <img src={aerodrome_img} alt="Aerodrome Image" className="aerodrome-img" />
+                        <div className="small-group">
+                          <CablesTables cablesTables={cablesTables} />
+                          <PisteConditionTables pisteConditionTables={pisteConditionTables} />
+                        </div>
                       </div>
-                    </div>
 
-                    <UpdateButton />
-                  </div>
-                </>
-              )
-            }
-          />
-          <Route path="/update" element={isLoading ? <p>Loading...</p> : <UpdateForm aerodromeTable={aerodromeTable} />} />
-        </Routes>
-      </div>
-    </Router>
+                      <UpdateButton />
+                    </div>
+                  </>
+                )
+              }
+            />
+            <Route path="/update" element={isLoading ? <p>Loading...</p> : <UpdateForm aerodromeTable={aerodromeTable} />} />
+          </Routes>
+        </div>
+      </Router>
+    </DataProvider>
   );
 }
 
 const AerodromeTable = ({ aerodromeTable }) => {
   if (aerodromeTable) {
     const aerodromeFields = [
-      { label: 'Piste Active:', data: aerodromeTable.piste_active },
-      { label: 'Act Aviaire Locale:', data: aerodromeTable.act_aviaire_locale },
-      { label: 'Act Aviaire Migratoire:', data: aerodromeTable.act_aviaire_migratoire },
-      { label: 'ARFF:', data: aerodromeTable.arff },
-      { label: 'SAR Statut:', data: aerodromeTable.sar_statut },
-      { label: 'SAR Statut YTR:', data: aerodromeTable.sar_statut_ytr },
-      { label: 'Champ Tir 9mm:', data: aerodromeTable.champ_tir_9mm },
-      { label: 'Champ Planeur:', data: aerodromeTable.champ_planeur },
-      { label: 'Circuit:', data: aerodromeTable.circuit },
-      { label: 'Base Rescue:', data: aerodromeTable.base_rescue },
-      { label: 'SAR Statut YZX:', data: aerodromeTable.sar_statut_yzx },
-      { label: 'Grande Anse:', data: aerodromeTable.grande_anse },
-      { label: 'Remarques:', data: aerodromeTable.remarques },
-      { label: 'Crée:', data: aerodromeTable.createdAt },
-      { label: 'Updated:', data: aerodromeTable.updatedAt },
+      { label: 'Piste Active:', key: 'piste_active', className: '' },
+      { label: 'Act Aviaire Locale:', key: 'act_aviaire_locale', className: 'green', condition: 'Faible' },
+      { label: 'Act Aviaire Migratoire:', key: 'act_aviaire_migratoire', className: 'green', condition: 'Faible' },
+      { label: 'ARFF:', key: 'arff', className: 'green', condition: 'Cat-5' },
+      { label: 'SAR Statut:', key: 'sar_statut', className: 'green', condition: 'Vert' },
+      { label: 'SAR Statut YTR:', key: 'sar_statut_ytr', className: 'green', condition: 'Vert' },
+      { label: 'Champ Tir 9mm:', key: 'champ_tir_9mm', className: 'green', condition: 'Inactif' },
+      { label: 'Champ Planeur:', key: 'champ_planeur', className: 'green', condition: 'Inactif' },
+      { label: 'Circuit:', key: 'circuit', className: 'green', condition: 'Ouvert' },
+      { label: 'Base Rescue:', key: 'base_rescue', className: 'green', condition: 'Vert' },
+      { label: 'SAR Statut YZX:', key: 'sar_statut_yzx', className: 'green', condition: 'Vert' },
+      { label: 'Grande Anse:', key: 'grande_anse', className: 'green', condition: 'Inactif' },
+      { label: 'Remarques:', key: 'remarques', className: '' },
+      { label: 'Crée:', key: 'createdAt', className: '' },
+      { label: 'Updated:', key: 'updatedAt', className: '' },
     ];
 
     return (
@@ -139,7 +141,13 @@ const AerodromeTable = ({ aerodromeTable }) => {
             {aerodromeFields.map((field, index) => (
               <tr key={index}>
                 <td className="field-label">{field.label}</td>
-                <td className="field-data">{field.data}</td>
+                <td className={`field-data ${field.className}`}>
+                  {field.condition && aerodromeTable[field.key] === field.condition ? (
+                    <span className="green">{aerodromeTable[field.key]}</span>
+                  ) : (
+                    <span className="red">{aerodromeTable[field.key]}</span>
+                  )}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -151,6 +159,7 @@ const AerodromeTable = ({ aerodromeTable }) => {
   }
 };
 
+
 const CablesTables = ({ cablesTables }) => {
   if (cablesTables.length > 0) {
     console.log(cablesTables);
@@ -160,8 +169,6 @@ const CablesTables = ({ cablesTables }) => {
           <tr>
             <th className="field-label">Cable</th>
             <th className="field-label">Condition</th>
-            <th className="field-label">CRFI</th>
-            <th className="field-label">Precision</th>
           </tr>
         </thead>
         <tbody>
@@ -169,8 +176,6 @@ const CablesTables = ({ cablesTables }) => {
             <tr key={index}>
               <td className="field-data bold">{cablesTable.name}</td>
               <td className="field-data">{cablesTable.Condition}</td>
-              <td className="field-data">{cablesTable.crfi}</td>
-              <td className="field-data">{cablesTable.precision}</td>
             </tr>
           ))}
         </tbody>

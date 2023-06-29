@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import { updateAerodromeTable } from '../graphql/mutations';
 import './UpdateForm.css';
 import { useNavigate } from 'react-router-dom';
+import { DataContext } from '../DataContext';
 
 const UpdateForm = ({ aerodromeTable }) => {
   const navigate = useNavigate();
+  const { updateData } = useContext(DataContext);
 
   const [formValues, setFormValues] = useState({
     // Initialize form values with existing data
@@ -46,6 +48,9 @@ const UpdateForm = ({ aerodromeTable }) => {
       );
 
       console.log('Updated AerodromeTable:', response.data.updateAerodromeTable);
+
+      // Call the updateData function to notify the home page and trigger a data refresh
+      updateData(response.data.updateAerodromeTable);
 
       // Navigate to the home page
       navigate('/');

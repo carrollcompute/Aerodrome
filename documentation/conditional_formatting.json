@@ -1,0 +1,113 @@
+
+
+
+{
+    "data": [
+      {
+        "label": "Piste Active",
+        "Green": null,
+        "Red": null,
+        "Yellow": null,
+        "White": default,
+      },
+      {
+        "label": "Act Aviaire Locale",
+        "Green": "Faible",
+        "Red": "Anything else",
+        "Yellow": null,
+        "White": null
+      },
+      {
+        "label": "Act Aviaire Migratoire",
+        "Green": "Faible",
+        "Red": anything else,
+        "Yellow": null,
+        "White": null
+      },
+      {
+        "label": "ARFF",
+        "Green": "CAT-5",
+        "Red": "Anything else",
+        "Yellow": null,
+        "White": null
+      },
+      {
+        "label": "SAR Statut",
+        "Green": "Vert",
+        "Red": "Rouge",
+        "Yellow": "Jaune",
+        "White": null
+      },
+      {
+        "label": "SAR Statut YTR",
+        "Green": "Vert",
+        "Red": "Rouge",
+        "Yellow": "Jaune",
+        "White": null
+      },
+      {
+        "label": "Champ Tir 9mm",
+        "Green": "inactif",
+        "Red": "actif",
+        "Yellow": null,
+        "White": null
+      },
+      {
+        "label": "Champ Planeur",
+        "Green": "inactif",
+        "Red": "actif",
+        "Yellow": null,
+        "White": null
+      },
+      {
+        "label": "Circuit",
+        "Green": true,
+        "Red": null,
+        "Yellow": null,
+        "White": null
+      },
+      {
+        "label": "Base Rescue",
+        "Green": "Vert",
+        "Red": "Rouge",
+        "Yellow": "Jaune",
+        "White": null
+      },
+      {
+        "label": "SAR Statut YZX",
+        "Green": "Vert",
+        "Red": "Rouge",
+        "Yellow": "Jaune",
+        "White": null
+      },
+      {
+        "label": "Grande Anse",
+        "Green": "inactif",
+        "Red": "actif",
+        "Yellow": null,
+        "White": null
+      },
+      {
+        "label": "Remarques",
+        "Green": null,
+        "Red": null,
+        "Yellow": null,
+        "White": null
+      },
+      {
+        "label": "Crée",
+        "Green": null,
+        "Red": null,
+        "Yellow": null,
+        "White": null
+      },
+      {
+        "label": "Updated",
+        "Green": null,
+        "Red": null,
+        "Yellow": null,
+        "White": null
+      }
+    ]
+  }
+  
