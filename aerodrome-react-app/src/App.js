@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
 import './App.css';
-import { listAerodromeTables, listCablesTables } from './graphql/queries';
+import { listAerodromeTables, listCablesTables, listPisteConditionTables } from './graphql/queries';
 import UpdateForm from './components/UpdateForm';
 import aerodrome_img from './aerodrome.png';
 
@@ -34,11 +34,13 @@ const UpdateButton = () => {
 function App() {
   const [aerodromeTable, setAerodromeTable] = useState(null);
   const [cablesTables, setCablesTables] = useState([]);
+  const [pisteConditionTables, setPisteConditionsTable] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        
         const aerodromeresponse = await API.graphql(graphqlOperation(listAerodromeTables));
         const aerodromeTables = aerodromeresponse.data.listAerodromeTables.items;
         if (aerodromeTables.length > 0) {
@@ -46,10 +48,17 @@ function App() {
         }
 
         const cablesTablesResponse = await API.graphql(graphqlOperation(listCablesTables));
-        console.log(cablesTablesResponse.data);
         const cablesTablesData = cablesTablesResponse.data.listCablesTables.items;
-        console.log(cablesTablesData);
         setCablesTables(cablesTablesData);
+
+        const pisteConditionsTablesResponse = await API.graphql(graphqlOperation(listPisteConditionTables));
+        console.log("Data:");
+        console.log(pisteConditionsTablesResponse.data);
+        const pisteConditionsTablesData = pisteConditionsTablesResponse.data.listPisteConditionTables.items;
+        setPisteConditionsTable(pisteConditionsTablesData);
+
+        console.log(pisteConditionsTablesData.length);
+
       } catch (error) {
         console.error('Error fetching Tables', error);
       } finally {
@@ -73,7 +82,10 @@ function App() {
                 <>
                   <AerodromeTable aerodromeTable={aerodromeTable} />
                   <img src={aerodrome_img} alt="Nothing" className="aerodrome-img" />
-                  <CablesTables cablesTables={cablesTables} />
+                  <div className="side-tables">
+                    <CablesTables cablesTables={cablesTables} />
+                    <PisteConditionTables pisteConditionTables={pisteConditionTables} />
+                  </div>
                   <UpdateButton />
                 </>
               )
@@ -90,27 +102,28 @@ const CablesTables = ({ cablesTables }) => {
   if (cablesTables.length > 0) {
     console.log(cablesTables);
     return (
-      <>
-        {cablesTables.map((cablesTable, index) => (
-          <table className="table-data" key={index}>
-            <tbody>
-              <tr>
-                <td className="field-label">Cable:</td>
-                <td className="field-data">{cablesTable.name}</td>
-              </tr>
-              <tr>
-                <td className="field-label">Condition:</td>
-                <td className="field-data">{cablesTable.Condition}</td>
-              </tr>
-            </tbody>
-          </table>
-        ))}
-      </>
+      <table className="table-data">
+        <thead>
+          <tr>
+            <th className="field-label">Cable</th>
+            <th className="field-label">Condition</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cablesTables.map((cablesTable, index) => (
+            <tr key={index}>
+              <td className="field-data">{cablesTable.name}</td>
+              <td className="field-data">{cablesTable.Condition}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     );
   } else {
     return <p>No cables tables data available.</p>;
   }
 };
+
 
 const AerodromeTable = ({ aerodromeTable }) => {
   if (aerodromeTable) {
@@ -128,27 +141,24 @@ const AerodromeTable = ({ aerodromeTable }) => {
       { label: 'SAR Statut YZX:', data: aerodromeTable.sar_statut_yzx },
       { label: 'Grande Anse:', data: aerodromeTable.grande_anse },
       { label: 'Remarques:', data: aerodromeTable.remarques },
-      { label: 'Created At:', data: aerodromeTable.createdAt },
-      { label: 'Updated At:', data: aerodromeTable.updatedAt },
+      { label: 'Crée:', data: aerodromeTable.createdAt },
+      { label: 'Updated:', data: aerodromeTable.updatedAt },
     ];
 
     return (
       <div>
         <div className="tables-wrapper">
-
-          <div className="table-container">
-            <table className="table-data">
-              <h1>Aerodrome</h1>
-              <tbody>
-                {aerodromeFields.map((field, index) => (
-                  <tr key={index}>
-                    <td className="field-label">{field.label}</td>
-                    <td className="field-data">{field.data}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <h1>Aerodrome</h1>
+          <table className="table-data">
+            <tbody>
+              {aerodromeFields.map((field, index) => (
+                <tr key={index}>
+                  <td className="field-label">{field.label}</td>
+                  <td className="field-data">{field.data}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     );
@@ -156,5 +166,38 @@ const AerodromeTable = ({ aerodromeTable }) => {
     return <p>No aerodrome table data available.</p>;
   }
 };
+
+const PisteConditionTables = ({ pisteConditionTables }) => {
+  if (pisteConditionTables.length > 0) {
+    console.log(pisteConditionTables);
+    return (
+      <table className="table-data">
+        <thead>
+          <tr>
+            <th className="field-label">Piste</th>
+            <th className="field-label">Condition</th>
+            <th className="field-label">CRFI</th>
+            <th className="field-label">Precision</th>
+          </tr>
+        </thead>
+        <tbody>
+          {pisteConditionTables.map((pisteConditionTable, index) => (
+            <tr key={index}>
+              <td className="field-data">{pisteConditionTable.piste}</td>
+              <td className="field-data">{pisteConditionTable.condition}</td>
+              <td className="field-data">{pisteConditionTable.crfi}</td>
+              <td className="field-data">{pisteConditionTable.precision}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  } else {
+    return <p>No piste condition tables data available.</p>;
+  }
+};
+
+
+
 
 export default App;
