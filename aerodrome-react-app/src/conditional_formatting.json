@@ -32,7 +32,7 @@
   "champ_tir_9mm": {
     "Inactif": "green",
     "Closed": "red",
-    "Unknown": "yellow"
+    "Actif": "yellow"
   },
 
   "champ_planeur": {
@@ -49,8 +49,8 @@
 
   "act_aviaire_migratoire": {
     "Faible": "green",
-    "Closed": "red",
-    "Unknown": "yellow"
+    "Fort": "red",
+    "Moyen": "yellow"
   },
 
   "base_rescue": {
@@ -137,7 +137,7 @@
     "Ouvert": "green",
     "Ferme": "red"
   },
-  
+
   "11/29": {
     "Ouvert": "green",
     "Ferme": "red"

@@ -71,121 +71,189 @@ const UpdateForm = ({ aerodromeTable }) => {
         <table className="aerodrome-table">
           <tr>
             <th>Piste Active:</th>
-            <td><input
-              type="text"
-              name="piste_active"
-              value={formValues.piste_active}
-              onChange={handleInputChange}
-            /></td>
+            <td>
+              <select
+                name="piste_active"
+                value={formValues.piste_active}
+                onChange={handleInputChange}
+              >
+                <option value="11">11</option>
+                <option value="18">18</option>
+                <option value="29">29</option>
+                <option value="36">36</option>
+              </select>
+            </td>
           </tr>
           <tr>
             <th>ARFF:</th>
-            <td><input
-              type="text"
-              name="arff"
-              value={formValues.arff}
-              onChange={handleInputChange}
-            /></td>
+            <td>
+              <select
+                name="arff"
+                value={formValues.arff}
+                onChange={handleInputChange}
+              >
+                <option value="CAT-1">CAT-1</option>
+                <option value="CAT-2">CAT-2</option>
+                <option value="CAT-3">CAT-3</option>
+                <option value="CAT-4">CAT-4</option>
+                <option value="CAT-5">CAT-5</option>
+              </select>
+            </td>
           </tr>
           <tr>
             <th>Act Aviaire Locale:</th>
-            <td><input
-              type="text"
-              name="act_aviaire_locale"
-              value={formValues.act_aviaire_locale}
-              onChange={handleInputChange}
-            /></td>
+            <td>
+              <select
+                name="act_aviaire_locale"
+                value={formValues.act_aviaire_locale}
+                onChange={handleInputChange}
+              >
+                <option value="Faible">Faible</option>
+                <option value="Moyen">Moyen</option>
+                <option value="Fort">Fort</option>
+              </select>
+            </td>
           </tr>
           <tr>
             <th>Act Aviaire Migratoire:</th>
-            <td><input
-              type="text"
-              name="act_aviaire_migratoire"
-              value={formValues.act_aviaire_migratoire}
-              onChange={handleInputChange}
-            /></td>
+            <td>
+              <select
+                name="act_aviaire_migratoire"
+                value={formValues.act_aviaire_migratoire}
+                onChange={handleInputChange}
+              >
+                <option value="Faible">Faible</option>
+                <option value="Moyen">Moyen</option>
+                <option value="Fort">Fort</option>
+              </select>
+            </td>
           </tr>
           <tr>
             <th>SAR Statut:</th>
-            <td><input
-              type="text"
-              name="sar_statut"
-              value={formValues.sar_statut}
-              onChange={handleInputChange}
-            /></td>
+            <td>
+              <select
+                name="sar_statut"
+                value={formValues.sar_statut}
+                onChange={handleInputChange}
+              >
+                <option value="Vert">Vert</option>
+                <option value="Jaune">Jaune</option>
+                <option value="Rouge">Rouge</option>
+              </select>
+            </td>
           </tr>
           <tr>
             <th>SAR Statut YTR:</th>
-            <td><input
-              type="text"
-              name="sar_statut_ytr"
-              value={formValues.sar_statut_ytr}
-              onChange={handleInputChange}
-            /></td>
+            <td>
+              <select
+                name="sar_statut_ytr"
+                value={formValues.sar_statut_ytr}
+                onChange={handleInputChange}
+              >
+                <option value="Vert">Vert</option>
+                <option value="Jaune">Jaune</option>
+                <option value="Rouge">Rouge</option>
+              </select>
+            </td>
           </tr>
           <tr>
             <th>Champ Tir 9mm:</th>
-            <td><input
-              type="text"
-              name="champ_tir_9mm"
-              value={formValues.champ_tir_9mm}
-              onChange={handleInputChange}
-            /></td>
+            <td>
+              <select
+                name="champ_tir_9mm"
+                value={formValues.champ_tir_9mm}
+                onChange={handleInputChange}
+              >
+                <option value="Actif">Actif</option>
+                <option value="Inactif">Inactif</option>
+              </select>
+            </td>
           </tr>
+
           <tr>
             <th>Champ Planeur:</th>
-            <td><input
-              type="text"
-              name="champ_planeur"
-              value={formValues.champ_planeur}
-              onChange={handleInputChange}
-            /></td>
+            <td>
+              <select
+                name="champ_planeur"
+                value={formValues.champ_planeur}
+                onChange={handleInputChange}
+              >
+                <option value="Actif">Actif</option>
+                <option value="Inactif">Inactif</option>
+              </select>
+            </td>
           </tr>
+
           <tr>
             <th>Circuit:</th>
-            <td><input
-              type="text"
-              name="circuit"
-              value={formValues.circuit}
-              onChange={handleInputChange}
-            /></td>
+            <td>
+              <select
+                name="circuit"
+                value={formValues.circuit}
+                onChange={handleInputChange}
+              >
+                <option value="Ouvert">Ouvert</option>
+                <option value="Fermé">Fermé</option>
+              </select>
+            </td>
           </tr>
+
           <tr>
             <th>Base Rescue:</th>
-            <td><input
-              type="text"
-              name="base_rescue"
-              value={formValues.base_rescue}
-              onChange={handleInputChange}
-            /></td>
+            <td>
+              <select
+                name="base_rescue"
+                value={formValues.base_rescue}
+                onChange={handleInputChange}
+              >
+                <option value="Vert">Vert</option>
+                <option value="Jaune">Jaune</option>
+                <option value="Rouge">Rouge</option>
+              </select>
+            </td>
           </tr>
+
           <tr>
             <th>SAR Statut YZX:</th>
-            <td><input
-              type="text"
-              name="sar_statut_yzx"
-              value={formValues.sar_statut_yzx}
-              onChange={handleInputChange}
-            /></td>
+            <td>
+              <select
+                name="sar_statut_yzx"
+                value={formValues.sar_statut_yzx}
+                onChange={handleInputChange}
+              >
+                <option value="Vert">Vert</option>
+                <option value="Jaune">Jaune</option>
+                <option value="Rouge">Rouge</option>
+              </select>
+            </td>
           </tr>
+
           <tr>
             <th>Grande Anse:</th>
-            <td><input
-              type="text"
-              name="grande_anse"
-              value={formValues.grande_anse}
-              onChange={handleInputChange}
-            /></td>
+            <td>
+              <select
+                name="grande_anse"
+                value={formValues.grande_anse}
+                onChange={handleInputChange}
+              >
+                <option value="Actif">Actif</option>
+                <option value="Inactif">Inactif</option>
+              </select>
+            </td>
           </tr>
+
           <tr>
             <th>Remarques:</th>
-            <td><input
-              type="text"
-              name="remarques"
-              value={formValues.remarques}
-              onChange={handleInputChange}
-            /></td>
+            <td>
+              <textarea
+                name="remarques"
+                value={formValues.remarques}
+                onChange={handleInputChange}
+                className="larger-textbox" // Apply the "larger-textbox" class
+              ></textarea>
+            </td>
           </tr>
+
         </table>
 
         {/* Add other fields here based on your AerodromeTable structure */}

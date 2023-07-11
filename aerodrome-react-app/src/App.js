@@ -78,8 +78,7 @@ function App() {
     <DataProvider>
       <Router>
         <Helmet>
-          <title>Aerodrome</title>
-          <link rel="icon" type="image/png" href="path/to/your/icon.png" />
+          <title>Aérodrome</title>
         </Helmet>
         <div className="App">
           <Routes>
