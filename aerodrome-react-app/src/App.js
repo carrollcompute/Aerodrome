@@ -158,12 +158,12 @@ const AerodromeTable = ({ aerodromeTable }) => {
                 return null; // Skip rendering for ignored fields
               }
               const label = keyLabels[key] || key; // Use the label from the lookup table, or the raw key if not found
+              const formattingData = conditionalFormattingData[key];
+              const className = formattingData && formattingData[value];
               return (
                 <tr key={key}>
                   <td className="field-label">{label}</td>
-                  <td className="field-data">
-                    {typeof value === 'object' ? JSON.stringify(value) : value}
-                  </td>
+                  <td className={`field-data ${className}`}>{value}</td>
                 </tr>
               );
             })}
@@ -181,7 +181,6 @@ const AerodromeTable = ({ aerodromeTable }) => {
 
 const CablesTables = ({ cablesTables }) => {
   if (cablesTables.length > 0) {
-    console.log(cablesTables);
     return (
       <table className="table-data">
         <thead>
@@ -191,12 +190,17 @@ const CablesTables = ({ cablesTables }) => {
           </tr>
         </thead>
         <tbody>
-          {cablesTables.map((cablesTable, index) => (
-            <tr key={index}>
-              <td className="field-data bold">{cablesTable.name}</td>
-              <td className="field-data">{cablesTable.Condition}</td>
-            </tr>
-          ))}
+          {cablesTables.map((cablesTable, index) => {
+            const formattingData = conditionalFormattingData[cablesTable.name];
+            const conditionClassName = formattingData && formattingData[cablesTable.Condition];
+            
+            return (
+              <tr key={index}>
+                <td className="field-data bold">{cablesTable.name}</td>
+                <td className={`field-data ${conditionClassName}`}>{cablesTable.Condition}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     );
@@ -209,7 +213,6 @@ const CablesTables = ({ cablesTables }) => {
 
 const PisteConditionTables = ({ pisteConditionTables }) => {
   if (pisteConditionTables.length > 0) {
-    console.log(pisteConditionTables);
     return (
       <table className="table-data">
         <thead>
@@ -221,14 +224,19 @@ const PisteConditionTables = ({ pisteConditionTables }) => {
           </tr>
         </thead>
         <tbody>
-          {pisteConditionTables.map((pisteConditionTable, index) => (
-            <tr key={index}>
-              <td className="field-data">{pisteConditionTable.piste}</td>
-              <td className="field-data">{pisteConditionTable.condition}</td>
-              <td className="field-data">{pisteConditionTable.crfi}</td>
-              <td className="field-data">{pisteConditionTable.precision}</td>
-            </tr>
-          ))}
+          {pisteConditionTables.map((pisteConditionTable, index) => {
+            const formattingData = conditionalFormattingData[pisteConditionTable.piste];
+            const conditionClassName = formattingData && formattingData[pisteConditionTable.condition];
+            
+            return (
+              <tr key={index}>
+                <td className="field-data">{pisteConditionTable.piste}</td>
+                <td className={`field-data ${conditionClassName}`}>{pisteConditionTable.condition}</td>
+                <td className="field-data">{pisteConditionTable.crfi}</td>
+                <td className="field-data">{pisteConditionTable.precision}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     );

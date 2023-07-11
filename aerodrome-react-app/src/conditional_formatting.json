@@ -1,97 +1,145 @@
 {
   "piste_active": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Open": "green",
+    "Closed": "red",
+    "Unknown": "yellow"
   },
+
   "arff": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "CAT-5": "green",
+    "CAT-1": "red",
+    "Unknown": "yellow"
   },
+
   "act_aviaire_locale": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Faible": "green",
+    "Fort": "red",
+    "Moyen": "yellow"
   },
+
   "sar_statut": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Open": "green",
+    "Closed": "red",
+    "Jaune": "yellow"
   },
+
   "sar_statut_ytr": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Vert": "green",
+    "Closed": "red",
+    "Jaune": "yellow"
   },
+
   "champ_tir_9mm": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Inactif": "green",
+    "Closed": "red",
+    "Unknown": "yellow"
   },
+
   "champ_planeur": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Open": "green",
+    "Closed": "red",
+    "Actif": "yellow"
   },
+
   "circuit": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Ouvert": "green",
+    "Closed": "red",
+    "Unknown": "yellow"
   },
+
   "act_aviaire_migratoire": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Faible": "green",
+    "Closed": "red",
+    "Unknown": "yellow"
   },
+
   "base_rescue": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Vert": "green",
+    "Closed": "red",
+    "Unknown": "yellow"
   },
+
   "sar_statut_yzx": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Vert": "green",
+    "Closed": "red",
+    "Unknown": "yellow"
   },
+
   "grande_anse": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Inactif": "green",
+    "Closed": "red",
+    "Unknown": "yellow"
   },
+
   "remarques": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Open": "green",
+    "Closed": "red",
+    "Unknown": "yellow"
   },
+
   "asr": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Open": "green",
+    "Closed": "red",
+    "Unknown": "yellow"
   },
+
   "ssr": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Open": "green",
+    "Closed": "red",
+    "Unknown": "yellow"
   },
+
   "par": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Open": "green",
+    "Closed": "red",
+    "Unknown": "yellow"
   },
+
   "ils": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Open": "green",
+    "Closed": "red",
+    "Unknown": "yellow"
   },
+
   "tacan": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Open": "green",
+    "Closed": "red",
+    "Unknown": "yellow"
   },
+
   "ndb": {
-      "Open": "Green",
-      "Closed": "Red",
-      "Unknown": "Yellow"
+    "Open": "green",
+    "Closed": "red",
+    "Unknown": "yellow"
+  },
+
+  "Sud": {
+    "Up": "green",
+    "Down": "red"
+  },
+
+  "Est": {
+    "Up": "green",
+    "Down": "red"
+  },
+
+  "West": {
+    "Up": "green",
+    "Down": "red"
+  },
+
+  "18/36": {
+    "Ouvert": "green",
+    "Ferme": "red"
+  },
+
+  "18/36 Sud": {
+    "Ouvert": "green",
+    "Ferme": "red"
+  },
+  
+  "11/29": {
+    "Ouvert": "green",
+    "Ferme": "red"
   }
 }
