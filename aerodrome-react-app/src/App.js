@@ -7,6 +7,8 @@ import UpdateForm from './components/UpdateForm';
 import aerodrome_img from './aerodrome.png';
 import { Helmet } from 'react-helmet';
 import { DataProvider } from './DataContext';
+import conditionalFormattingData from './conditional_formatting.json';
+
 
 
 // Warning! API Configuration needs to be hidden
@@ -88,13 +90,13 @@ function App() {
                   <p>Loading...</p>
                 ) : (
                   <>
-                    <div className="vertical-group">
+                    <div>
                       <h1>Aerodome</h1>
                       
                       <div className="center">
                         <AerodromeTable aerodromeTable={aerodromeTable} />
                         <img src={aerodrome_img} alt="Aerodrome Image" className="aerodrome-img" />
-                        <div className="small-group">
+                        <div>
                           <CablesTables cablesTables={cablesTables} />
                           <PisteConditionTables pisteConditionTables={pisteConditionTables} />
                         </div>
@@ -114,42 +116,57 @@ function App() {
   );
 }
 
+const keyLabels = {
+  piste_active: 'Piste Active',
+  act_aviaire_locale: 'Act Aviaire Locale',
+  act_aviaire_migratoire: 'Act Aviaire Migratoire',
+  arff: 'ARFF',
+  sar_statut: 'SAR Statut',
+  sar_statut_ytr: 'SAR Statut YTR',
+  champ_tir_9mm: 'Champ Tir 9mm',
+  champ_planeur: 'Champ Planeur',
+  circuit: 'Circuit',
+  base_rescue: 'Base Rescue',
+  sar_statut_yzx: 'SAR Statut YZX',
+  grande_anse: 'Grande Anse',
+  remarques: 'Remarques',
+  asr: 'ASR',
+  ssr: 'SSR',
+  par: 'PAR',
+  ils: 'ILS',
+  tacan: 'TACAN',
+  ndb: 'NDB',
+};
+
 const AerodromeTable = ({ aerodromeTable }) => {
   if (aerodromeTable) {
-    const aerodromeFields = [
-      { label: 'Piste Active:', key: 'piste_active', className: '' },
-      { label: 'Act Aviaire Locale:', key: 'act_aviaire_locale', className: 'green', condition: 'Faible' },
-      { label: 'Act Aviaire Migratoire:', key: 'act_aviaire_migratoire', className: 'green', condition: 'Faible' },
-      { label: 'ARFF:', key: 'arff', className: 'green', condition: 'Cat-5' },
-      { label: 'SAR Statut:', key: 'sar_statut', className: 'green', condition: 'Vert' },
-      { label: 'SAR Statut YTR:', key: 'sar_statut_ytr', className: 'green', condition: 'Vert' },
-      { label: 'Champ Tir 9mm:', key: 'champ_tir_9mm', className: 'green', condition: 'Inactif' },
-      { label: 'Champ Planeur:', key: 'champ_planeur', className: 'green', condition: 'Inactif' },
-      { label: 'Circuit:', key: 'circuit', className: 'green', condition: 'Ouvert' },
-      { label: 'Base Rescue:', key: 'base_rescue', className: 'green', condition: 'Vert' },
-      { label: 'SAR Statut YZX:', key: 'sar_statut_yzx', className: 'green', condition: 'Vert' },
-      { label: 'Grande Anse:', key: 'grande_anse', className: 'green', condition: 'Inactif' },
-      { label: 'Remarques:', key: 'remarques', className: '' },
-      { label: 'Crée:', key: 'createdAt', className: '' },
-      { label: 'Updated:', key: 'updatedAt', className: '' },
-    ];
-
     return (
       <div>
         <table className="table-data">
           <tbody>
-            {aerodromeFields.map((field, index) => (
-              <tr key={index}>
-                <td className="field-label">{field.label}</td>
-                <td className={`field-data ${field.className}`}>
-                  {field.condition && aerodromeTable[field.key] === field.condition ? (
-                    <span className="green">{aerodromeTable[field.key]}</span>
-                  ) : (
-                    <span className="red">{aerodromeTable[field.key]}</span>
-                  )}
-                </td>
-              </tr>
-            ))}
+            {Object.entries(aerodromeTable).map(([key, value]) => {
+              if (
+                key === 'id' ||
+                key === 'CablesTables' ||
+                key === 'PIREPSTables' ||
+                key === 'PisteConditionTables' ||
+                key === 'createdAt' ||
+                key === 'updatedAt' ||
+                key === '__typename' ||
+                key === 'remarques'
+              ) {
+                return null; // Skip rendering for ignored fields
+              }
+              const label = keyLabels[key] || key; // Use the label from the lookup table, or the raw key if not found
+              return (
+                <tr key={key}>
+                  <td className="field-label">{label}</td>
+                  <td className="field-data">
+                    {typeof value === 'object' ? JSON.stringify(value) : value}
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
@@ -158,6 +175,8 @@ const AerodromeTable = ({ aerodromeTable }) => {
     return <p>No aerodrome table data available.</p>;
   }
 };
+
+
 
 
 const CablesTables = ({ cablesTables }) => {

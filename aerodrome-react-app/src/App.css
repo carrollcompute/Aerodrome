@@ -1,11 +1,6 @@
-body {
-  background-color: #09305b; /* Blue background color */
-  text-align: left;
-  margin: 0;
-  padding: 0;
-}
 
 .App {
+  background-color: rgb(9, 18, 82);
   text-align: center;
   min-height: 100vh; /* Ensure the app fills the entire viewport height */
   display: flex;
@@ -21,90 +16,57 @@ body {
   height: 25vw; /* Set the desired height */
   min-width: 400px;
   min-height: 400px;
-  border-radius: 25%; /* Make the image circular */
+  border-radius: 50%; /* Make the image circular */
   overflow: hidden; /* Hide any overflow outside the circle */
   flex-shrink: 0; /* Prevent the image from shrinking */
-}
-
-/* Example image */
-.aerodrome-img img {
-  width: 100%; /* Make the image fill the container */
-  height: 100%; /* Make the image fill the container */
-  object-fit: cover; /* Maintain the aspect ratio and cover the container */
 }
 
 .bold {
   font-weight: bold;
 }
 
-.side-tables {
-  flex-direction: left;
-  text-align: center;
-}
-
-.table-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  
-}
-
 .table-data {
-  align-self: center;
+  align-self: flex-start; /* Float the table to the top */
   flex-grow: 1; /* Allow the table to grow and fill the remaining space */
-  margin-left: 10px; /* Add some spacing between the image and table */
+  margin-left: 20px; /* Add some spacing between the image and table */
   grid-auto-columns: auto;
   max-width: 33vw;
-  text-align: center; /* Center-align the content within table cells */
+  text-align: left; /* Center-align the content within table cells */
   padding: 25px;
 }
 
 .field-label {
-  text-align: center;
+  text-align: left;
   font-weight: bold;
   margin-right: 10px;
   margin-bottom: 0;
 }
 
 .field-data {
-  text-align: center;
-  margin: 0;
+  text-align: left;
+  margin: 10px 10px;
   margin-bottom: 0;
 }
 
-
 .App button {
-  padding: 20px 36px;
+  padding: 10px 20px; /* Reduce the padding to make the button smaller */
   background-color: #007bff;
   color: #fff;
   border: none;
   cursor: pointer;
   align-self: flex-start; /* Left align the button */
   margin-top: 10px;
-  font-size: 32px;
-  border-radius: 24px;
+  font-size: 14px; /* Reduce the font size to make the button smaller */
+  border-radius: 8px; /* Reduce the border radius to make the button smaller */
 }
 
 .App button:hover {
   background-color: #072f5a;
 }
 
-
-.vertical-group {
-  float: center;
-}
-
 .center {
   display: flex;
   flex-wrap: wrap;
-}
-
-.small-group {
-  display: block;
-  float: left;
-  grid-template-columns: auto;
-  padding-bottom: 50px;
-  padding-top: 50px;
 }
 
 .green {

@@ -1,0 +1,97 @@
+{
+  "piste_active": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "arff": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "act_aviaire_locale": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "sar_statut": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "sar_statut_ytr": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "champ_tir_9mm": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "champ_planeur": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "circuit": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "act_aviaire_migratoire": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "base_rescue": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "sar_statut_yzx": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "grande_anse": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "remarques": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "asr": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "ssr": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "par": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "ils": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "tacan": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  },
+  "ndb": {
+      "Open": "Green",
+      "Closed": "Red",
+      "Unknown": "Yellow"
+  }
+}
