@@ -96,7 +96,7 @@ function App() {
                 ) : (
                   <>
                     <div>
-                      <h1>Aerodome</h1>
+                      <h1>Aérodome</h1>
                       
                       <div className="center">
                         <AerodromeTable aerodromeTable={aerodromeTable} />
