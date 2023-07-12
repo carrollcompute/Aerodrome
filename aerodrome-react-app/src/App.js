@@ -45,7 +45,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        
+
         const aerodromeresponse = await API.graphql(graphqlOperation(listAerodromeTables));
         const aerodromeTables = aerodromeresponse.data.listAerodromeTables.items;
         if (aerodromeTables.length > 0) {
@@ -53,16 +53,19 @@ function App() {
         }
 
         const cablesTablesResponse = await API.graphql(graphqlOperation(listCablesTables));
+        console.log("cablesTablesResponse.data:");
+        console.log(cablesTablesResponse.data);
         const cablesTablesData = cablesTablesResponse.data.listCablesTables.items;
         setCablesTables(cablesTablesData);
 
         const pisteConditionsTablesResponse = await API.graphql(graphqlOperation(listPisteConditionTables));
-        console.log("Data:");
+        console.log("pisteConditionsTablesResponse.data:");
         console.log(pisteConditionsTablesResponse.data);
         const pisteConditionsTablesData = pisteConditionsTablesResponse.data.listPisteConditionTables.items;
         setPisteConditionsTable(pisteConditionsTablesData);
 
         console.log(pisteConditionsTablesData.length);
+
 
       } catch (error) {
         console.error('Error fetching Tables', error);
@@ -73,6 +76,9 @@ function App() {
 
     fetchData();
   }, []);
+
+
+
 
   return (
     <DataProvider>
