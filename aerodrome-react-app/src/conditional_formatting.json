@@ -1,15 +1,15 @@
 {
   "piste_active": {
-    "Open": "green",
-    "Closed": "red",
-    "Unknown": "yellow"
   },
 
   "arff": {
     "CAT-5": "green",
-    "CAT-1": "red",
-    "Unknown": "yellow"
+    "CAT-4": "green",
+    "CAT-3": "yellow",
+    "CAT-2": "orange",
+    "CAT-1": "red"
   },
+  
 
   "act_aviaire_locale": {
     "Faible": "green",
@@ -18,27 +18,25 @@
   },
 
   "sar_statut": {
-    "Open": "green",
-    "Closed": "red",
+    "Vert": "green",
+    "Rouge": "red",
     "Jaune": "yellow"
   },
 
   "sar_statut_ytr": {
     "Vert": "green",
-    "Closed": "red",
+    "Rouge": "red",
     "Jaune": "yellow"
   },
 
   "champ_tir_9mm": {
     "Inactif": "green",
-    "Closed": "red",
-    "Actif": "yellow"
+    "Actif": "red"
   },
 
   "champ_planeur": {
-    "Open": "green",
-    "Closed": "red",
-    "Actif": "yellow"
+    "Inactif": "green",
+    "Actif": "red"
   },
 
   "circuit": {
@@ -55,26 +53,23 @@
 
   "base_rescue": {
     "Vert": "green",
-    "Closed": "red",
-    "Unknown": "yellow"
+    "Rouge": "red",
+    "Jaune": "yellow"
   },
 
   "sar_statut_yzx": {
     "Vert": "green",
-    "Closed": "red",
-    "Unknown": "yellow"
+    "Rouge": "red",
+    "Jaune": "yellow"
   },
 
   "grande_anse": {
     "Inactif": "green",
-    "Closed": "red",
-    "Unknown": "yellow"
+    "Actif": "red",
+    "Jaune": "yellow"
   },
 
   "remarques": {
-    "Open": "green",
-    "Closed": "red",
-    "Unknown": "yellow"
   },
 
   "asr": {
