@@ -14,6 +14,9 @@
     "categories": {
       "api": {
         "aerodrome": {}
+      },
+      "auth": {
+        "Aerodrome": {}
       }
     }
   }

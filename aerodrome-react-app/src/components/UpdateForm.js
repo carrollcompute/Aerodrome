@@ -4,6 +4,8 @@ import { updateAerodromeTable } from '../graphql/mutations';
 import './UpdateForm.css';
 import { useNavigate } from 'react-router-dom';
 import { DataContext } from '../DataContext';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+
 
 const UpdateForm = ({ aerodromeTable }) => {
   const navigate = useNavigate();
@@ -263,4 +265,4 @@ const UpdateForm = ({ aerodromeTable }) => {
   );
 };
 
-export default UpdateForm;
+export default withAuthenticator(UpdateForm);
