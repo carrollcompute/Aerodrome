@@ -32,6 +32,11 @@
       "StackName": "amplify-aerodrome-dev-202824",
       "StackId": "arn:aws:cloudformation:us-east-2:734358420781:stack/amplify-aerodrome-dev-202824/38704b50-2114-11ee-afae-060e65b464e9",
       "AmplifyAppId": "dt8z073mvb5c7"
+    },
+    "categories": {
+      "auth": {
+        "aerodromed793dc4d": {}
+      }
     }
   }
 }
