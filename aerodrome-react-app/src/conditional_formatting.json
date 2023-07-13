@@ -41,7 +41,7 @@
 
   "circuit": {
     "Ouvert": "green",
-    "Fermé": "red",
+    "Closed": "red",
     "Unknown": "yellow"
   },
 
