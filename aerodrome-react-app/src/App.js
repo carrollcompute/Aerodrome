@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { API, graphqlOperation } from 'aws-amplify';
+import { API, graphqlOperation, Auth } from 'aws-amplify';
 import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
 import './App.css';
 import { listAerodromeTables, listCablesTables, listPisteConditionTables } from './graphql/queries';
@@ -8,6 +8,8 @@ import aerodrome_img from './aerodrome.png';
 import { Helmet } from 'react-helmet';
 import { DataProvider } from './DataContext';
 import conditionalFormattingData from './conditional_formatting.json';
+import aws_exports from './aws-exports';
+
 
 
 
@@ -21,6 +23,7 @@ const awsconfig = {
 };
 
 API.configure(awsconfig);
+Auth.configure(aws_exports);
 
 const UpdateButton = () => {
   const navigate = useNavigate();
@@ -96,7 +99,7 @@ function App() {
                 ) : (
                   <>
                     <div>
-                      <h1>Aérodome</h1>
+                      <h1>Statut de l'Aérodome</h1>
                       
                       <div className="center">
                         <AerodromeTable aerodromeTable={aerodromeTable} />
