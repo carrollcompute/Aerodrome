@@ -22,7 +22,7 @@ const awsconfig = {
   "aws_appsync_apiKey": "da2-62ncw563ajbtbbnmcsyr4hickm"
 };
 
-API.configure(awsconfig);
+API.configure(aws_exports);
 Auth.configure(aws_exports);
 
 const UpdateButton = () => {

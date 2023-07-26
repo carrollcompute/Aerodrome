@@ -5,4 +5,4 @@
  **************************************************************************/
 
 export { default as studioTheme } from "./studioTheme";
-export { default as AerodromeUpdateForm } from "./AerodromeUpdateForm";
+export { default as UpdateForm } from "./UpdateForm";
