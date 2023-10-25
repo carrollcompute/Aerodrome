@@ -1,0 +1,17 @@
+/* NavBar.css */
+
+/* Center the title horizontally using flexbox */
+.navbar-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Customize the title's appearance */
+  .navbar-title-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Change to your desired text color */
+    /* Add other styling properties as needed */
+  }
+  

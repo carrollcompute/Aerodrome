@@ -1,0 +1,12 @@
+.app-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 20px;
+}
+
+/* Make both StatusForm and AerodromeImage each take half of the container width */
+.app-container > * {
+    flex: 1;
+    max-width: 50%;  /* Ensure that each child doesn't grow beyond half of the container width */
+}

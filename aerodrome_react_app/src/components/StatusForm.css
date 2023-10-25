@@ -1,0 +1,41 @@
+/* Style for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Header styles */
+th {
+    background-color: #f5f5f5;
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Cell styles */
+td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Dropdown styles */
+select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* If you want to add some hover effects on rows */
+tr:hover {
+    background-color: #fafafa;
+}
+
+
+.status-active {
+    color: red;
+}
+
+.status-inactive {
+    color: green;
+}
