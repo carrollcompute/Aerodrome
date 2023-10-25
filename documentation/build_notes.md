@@ -34,7 +34,7 @@
 
 
 - [ X ] // TODO:  Update the button functionality to bring the user back to the home route.
-- [ ] // TODO:  upload aerodrome photo.
+- [ X ] // TODO:  upload aerodrome photo.
 - [ ] // TODO:  Insert the remaining tables into the database.
 - [ ] // TODO:  Add functionality to insert a photo into the database.
 - [ ] // TODO:  Format the aerodrome display for better visual presentation.

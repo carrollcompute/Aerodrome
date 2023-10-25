@@ -11,8 +11,8 @@ const NavBar: React.FC = () => {
           <span className="navbar-title-text">Aerodrome Status</span>
         </div>
         <div>
-          <Link to="/form" className="btn btn-primary m-2">Status Form</Link>
           <Link to="/" className="btn btn-secondary m-2">Status Table</Link>
+          <Link to="/about" className="btn btn-primary m-2">About</Link>
         </div>
       </div>
     </nav>

@@ -1,8 +1,8 @@
 import './App.css'
 import NavBar from './components/NavBar';
+import About from './components/About';
 import AppContainer from './components/AppContainer';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import StatusForm from './components/StatusForm';
 
 
 const App: React.FC = () => {
@@ -11,8 +11,8 @@ const App: React.FC = () => {
       <div>
         <NavBar />
         <Routes>
-          <Route path="/form" element={<StatusForm />} />
           <Route path="/" element={<AppContainer />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
     </Router>
