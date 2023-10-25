@@ -1,0 +1,79 @@
+{
+    "piste_active": {
+      "Name": "Piste Active",
+      "Status": "Active"
+    },
+    "arff": {
+      "Name": "ARFF",
+      "Status": "Inactive"
+    },
+    "act_aviaire_locale": {
+      "Name": "Act Aviaire Locale",
+      "Status": "Active"
+    },
+    "sar_statut": {
+      "Name": "SAR Statut",
+      "Status": "Inactive"
+    },
+    "sar_statut_ytr": {
+      "Name": "SAR Statut YTR",
+      "Status": "Active"
+    },
+    "champ_tir_9mm": {
+      "Name": "Champ Tir 9mm",
+      "Status": "Active"
+    },
+    "champ_planeur": {
+      "Name": "Champ Planeur",
+      "Status": "Inactive"
+    },
+    "circuit": {
+      "Name": "Circuit",
+      "Status": "Active"
+    },
+    "act_aviaire_migratoire": {
+      "Name": "Act Aviaire Migratoire",
+      "Status": "Active"
+    },
+    "base_rescue": {
+      "Name": "Base Rescue",
+      "Status": "Inactive"
+    },
+    "sar_statut_yzx": {
+      "Name": "SAR Statut YZX",
+      "Status": "Active"
+    },
+    "grande_anse": {
+      "Name": "Grande Anse",
+      "Status": "Active"
+    },
+    "remarques": {
+      "Name": "Remarques",
+      "Status": "Inactive"
+    },
+    "asr": {
+      "Name": "ASR",
+      "Status": "Active"
+    },
+    "ssr": {
+      "Name": "SSR",
+      "Status": "Inactive"
+    },
+    "par": {
+      "Name": "PAR",
+      "Status": "Active"
+    },
+    "ils": {
+      "Name": "ILS",
+      "Status": "Active"
+    },
+    "tacan": {
+      "Name": "TACAN",
+      "Status": "Inactive"
+    },
+    "ndb": {
+      "Name": "NDB",
+      "Status": "Active"
+    }
+  }
+  
