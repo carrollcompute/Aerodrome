@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './StatusForm.css';
+import { initialData } from './StatusData';
 
 // Define constants for status values
 const STATUS_ACTIVE = 'Active';
@@ -10,11 +11,7 @@ interface StatusItem {
   Status: string;
 }
 
-interface StatusFormProps {
-  initialData: { [key: string]: StatusItem };
-}
-
-const StatusForm: React.FC<StatusFormProps> = ({ initialData }) => {
+const StatusForm: React.FC = () => {
   const [data, setData] = useState<{ [key: string]: StatusItem }>(initialData);
 
   const handleStatusChange = (key: string, newStatus: string) => {

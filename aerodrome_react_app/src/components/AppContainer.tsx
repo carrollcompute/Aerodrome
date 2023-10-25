@@ -1,7 +1,7 @@
 import React from 'react';
 import StatusTable from './StatusTable';
 import AerodromeImage from './AerodromeImage';
-import { initialData } from './statusData';
+import { initialData } from './StatusData';
 
 
 import './AppContainer.css';
