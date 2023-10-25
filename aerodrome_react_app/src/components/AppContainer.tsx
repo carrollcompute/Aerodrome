@@ -1,13 +1,15 @@
 import React from 'react';
-import StatusForm from './StatusForm';
+import StatusTable from './StatusTable';
 import AerodromeImage from './AerodromeImage';
+import { initialData } from './statusData';
+
 
 import './AppContainer.css';
 
 const AppContainer: React.FC = () => {
   return (
     <div className="app-container">
-      <StatusForm />
+      <StatusTable data={initialData} />
       <AerodromeImage />
     </div>
   );
