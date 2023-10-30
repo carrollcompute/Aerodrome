@@ -4,6 +4,7 @@ import './About.css';
 // Importing the data from the JSON file
 import aboutData from './aboutData.json';
 
+// About Page
 const About: React.FC = () => {
   return (
     <div className="about-container">

@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
 import './StatusForm.css';
 import { initialData } from './StatusData';
+import StatusTableComponent, { StatusItem } from './StatusTableComponent'; // Import StatusItem here
 
-// Define constants for status values
 const STATUS_ACTIVE = 'Active';
 const STATUS_INACTIVE = 'Inactive';
-
-interface StatusItem {
-  Name: string;
-  Status: string;
-}
 
 const StatusForm: React.FC = () => {
   const [data, setData] = useState<{ [key: string]: StatusItem }>(initialData);
@@ -26,30 +21,17 @@ const StatusForm: React.FC = () => {
 
   return (
     <form>
-      <table className="status-form-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.entries(data).map(([key, { Name, Status }]) => (
-            <tr key={key}>
-              <td>{Name}</td>
-              <td className={`status-${Status.toLowerCase()}`}>
-                <select
-                  value={Status}
-                  onChange={(e) => handleStatusChange(key, e.target.value)}
-                >
-                  <option value={STATUS_ACTIVE}>{STATUS_ACTIVE}</option>
-                  <option value={STATUS_INACTIVE}>{STATUS_INACTIVE}</option>
-                </select>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <StatusTableComponent data={data}>
+        {(item, key) => (
+          <select
+            value={item.Status}
+            onChange={(e) => handleStatusChange(key, e.target.value)}
+          >
+            <option value={STATUS_ACTIVE}>{STATUS_ACTIVE}</option>
+            <option value={STATUS_INACTIVE}>{STATUS_INACTIVE}</option>
+          </select>
+        )}
+      </StatusTableComponent>
     </form>
   );
 };
