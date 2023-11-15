@@ -1,7 +1,7 @@
 import './App.css'
 import NavBar from './NavBar/NavBar';
 import About from './About/About';
-import AppContainer from './AppContainer';
+import Status from './Status/Status';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import { LoginProvider } from './LoginContext';
 
@@ -13,7 +13,7 @@ const App: React.FC = () => {
         <LoginProvider>
           <NavBar />
           <Routes>
-            <Route path="/" element={<AppContainer />} />
+            <Route path="/" element={<Status />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </LoginProvider>
