@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import StatusTable from './StatusTable';
-import StatusForm from './StatusForm';
-import AerodromeImage from './AerodromeImage';
-import { initialData } from './StatusData';
+import StatusTable from './Status/StatusTable';
+import StatusForm from './Status/StatusForm';
+import AerodromeImage from './Status/AerodromeImage';
+import { initialData } from './Status/StatusData';
 import './AppContainer.css';
 
 const AppContainer: React.FC = () => {
@@ -14,8 +14,6 @@ const AppContainer: React.FC = () => {
     <div className="app-container">
       {isLoggedIn ? <StatusForm /> : <StatusTable data={initialData} />}
       <AerodromeImage />
-      {/* Mock button to toggle the isLoggedIn state for demonstration purposes */}
-      <button onClick={() => setIsLoggedIn(!isLoggedIn)}>Toggle Login State</button>
     </div>
   );
 }

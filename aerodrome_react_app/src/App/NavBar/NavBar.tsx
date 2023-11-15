@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.css'; // Import the CSS file
 
 const NavBar: React.FC = () => {
+
+  // Mock state for user authentication. In a real application,
+  // this state would be set based on the authentication system.
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -13,6 +18,9 @@ const NavBar: React.FC = () => {
         <div>
           <Link to="/" className="btn btn-secondary m-2">Status Table</Link>
           <Link to="/about" className="btn btn-primary m-2">About</Link>
+          
+          {/* Mock button to toggle the isLoggedIn state for demonstration purposes */}
+          <button onClick={() => setIsLoggedIn(!isLoggedIn)}>Toggle Login State</button>
         </div>
       </div>
     </nav>

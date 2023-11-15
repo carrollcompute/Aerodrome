@@ -1,7 +1,7 @@
 import './App.css'
-import NavBar from './components/NavBar';
-import About from './components/About';
-import AppContainer from './components/AppContainer';
+import NavBar from './NavBar/NavBar';
+import About from './About/About';
+import AppContainer from './AppContainer';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 
 
