@@ -2,13 +2,13 @@
 
 import React, { createContext, useContext, useState } from 'react';
 
-const LoginContext = createContext();
+const LoginContext = createContext({ isLoggedIn: false, toggleLogin: () => {} });
 
 export const useLogin = () => {
     return useContext(LoginContext);
 };
 
-export const LoginProvider: React.FC = ({ children }) => {
+export const LoginProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const toggleLogin = () => {
