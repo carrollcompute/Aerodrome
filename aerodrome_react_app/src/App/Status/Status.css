@@ -44,4 +44,12 @@
     outline: none;
     border-color: blue;
   }
+
+  .status-table select option[value="Inactive"] {
+    color: green;
+  }
+  
+  .status-table select option[value="Active"] {
+    color: red;
+  }
   
