@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import StatusTable from './Status/StatusTable';
 import StatusForm from './Status/StatusForm';
 import AerodromeImage from './Status/AerodromeImage';
 import { initialData } from './Status/StatusData';
+import { useLogin } from './LoginContext';
 import './AppContainer.css';
 
 const AppContainer: React.FC = () => {
-  // Mock state for user authentication. In a real application,
-  // this state would be set based on the authentication system.
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
+  
+  const { isLoggedIn } = useLogin();
 
   return (
     <div className="app-container">
