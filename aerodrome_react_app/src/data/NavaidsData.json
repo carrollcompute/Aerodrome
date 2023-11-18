@@ -1,0 +1,28 @@
+{
+    "navaids": [
+        {
+            "name": "ASR",
+            "details": "ASR Details"
+        },
+        {
+            "name": "SSR",
+            "details": "SSR Details"
+        },
+        {
+            "name": "PAR",
+            "details": "PAR Details"
+        },
+        {
+            "name": "ILS",
+            "details": "ILS Details"
+        },
+        {
+            "name": "TACAN",
+            "details": "TACAN Details"
+        },
+        {
+            "name": "NDB",
+            "details": "NDB Details"
+        }
+    ]
+}

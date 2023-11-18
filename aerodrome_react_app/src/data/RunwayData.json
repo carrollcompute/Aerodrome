@@ -1,0 +1,23 @@
+{
+    "runways": [
+      {
+        "name": "11/29",
+        "Condition": "Condition 1",
+        "CRFI": "CRFI 1",
+        "Precision": "Precision 1"
+      },
+      {
+        "name": "18/36 Nord",
+        "Condition": "Condition 2",
+        "CRFI": "CRFI 2",
+        "Precision": "Precision 2"
+      },
+      {
+        "name": "18/36 Sud",
+        "Condition": "Condition 3",
+        "CRFI": "CRFI 3",
+        "Precision": "Precision 3"
+      }
+    ]
+  }
+  

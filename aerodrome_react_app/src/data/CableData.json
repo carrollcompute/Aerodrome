@@ -1,0 +1,17 @@
+{
+    "cables": [
+      {
+        "name": "Est",
+        "Condition": "Up"
+      },
+      {
+        "name": "West",
+        "Condition": "Down"
+      },
+      {
+        "name": "South",
+        "Condition": "Up"
+      }
+    ]
+  }
+  
