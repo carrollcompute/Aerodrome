@@ -1,8 +1,8 @@
-
-import React, { useState, useContext } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 import './Status.css';
 import { initialData } from '../../data/StatusData';
-import { useLogin } from '../LoginContext';
+import { LoginContext } from '../LoginContext';
+
 
 export interface StatusItem {
   Name: string;
@@ -14,73 +14,69 @@ interface StatusTableComponentProps {
   children: (item: StatusItem, key: string) => React.ReactNode;
 }
 
-const StatusTableComponent: React.FC<StatusTableComponentProps> = ({ data, children }) => {
-  return (
-    <table className="status-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Status</th>
+const MainStatusTable: React.FC<StatusTableComponentProps> = ({ data, children }) => (
+  <table className="status-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {Object.entries(data).map(([key, item]) => (
+        <tr key={key}>
+          <td>{item.Name}</td>
+          <td className={`status-${item.Status.toLowerCase()}`}>
+            {children(item, key)}
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        {Object.entries(data).map(([key, item]) => (
-          <tr key={key}>
-            <td>{item.Name}</td>
-            <td className={`status-${item.Status.toLowerCase()}`}>
-              {children(item, key)}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  );
-}
+      ))}
+    </tbody>
+  </table>
+);
 
 const STATUS_ACTIVE = 'Active';
 const STATUS_INACTIVE = 'Inactive';
 
-const StatusForm: React.FC<{ data: { [key: string]: StatusItem }; }> = ({ data: initialData }) => {
-  const [data, setData] = useState<{ [key: string]: StatusItem }>(initialData);
+const StatusSelector: React.FC<{ status: string; onChange: (newStatus: string) => void }> = ({ status, onChange }) => (
+  <select value={status} onChange={(e) => onChange(e.target.value)}>
+    <option value={STATUS_ACTIVE}>{STATUS_ACTIVE}</option>
+    <option value={STATUS_INACTIVE}>{STATUS_INACTIVE}</option>
+  </select>
+);
 
-  const handleStatusChange = (key: string, newStatus: string) => {
-    setData(prevData => ({
+const StatusForm: React.FC<{ data: { [key: string]: StatusItem } }> = ({ data }) => {
+  const [statusData, setStatusData] = useState<{ [key: string]: StatusItem }>(data);
+
+  const handleStatusChange = useCallback((key: string, newStatus: string) => {
+    setStatusData(prevData => ({
       ...prevData,
       [key]: {
         ...prevData[key],
         Status: newStatus,
       },
     }));
-  };
+  }, []);
 
   return (
     <form>
-      <StatusTableComponent data={data}>
-        {(item, key) => (
-          <select
-            key={key}
-            value={item.Status}
-            onChange={(e) => handleStatusChange(key, e.target.value)}
-          >
-            <option value={STATUS_ACTIVE}>{STATUS_ACTIVE}</option>
-            <option value={STATUS_INACTIVE}>{STATUS_INACTIVE}</option>
-          </select>
-        )}
-      </StatusTableComponent>
+      <MainStatusTable data={statusData}>
+        {(item, key) => <StatusSelector key={key} status={item.Status} onChange={(newStatus) => handleStatusChange(key, newStatus)} />}
+      </MainStatusTable>
     </form>
   );
 };
 
-const StatusTable: React.FC<{ data: { [key: string]: StatusItem }; }> = ({ data }) => {
-  return (
-    <StatusTableComponent data={data}>
-      {(item) => item.Status}
-    </StatusTableComponent>
-  );
-}
+
+
+const StatusTable: React.FC<{ data: { [key: string]: StatusItem } }> = ({ data }) => (
+  <MainStatusTable data={data}>
+    {(item) => item.Status}
+  </MainStatusTable>
+);
 
 const Status: React.FC = () => {
-  const { isLoggedIn } = useLogin();
+  const { isLoggedIn } = useContext(LoginContext);
   return isLoggedIn ? <StatusForm data={initialData} /> : <StatusTable data={initialData} />;
 }
 

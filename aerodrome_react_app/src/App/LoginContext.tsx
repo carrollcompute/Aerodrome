@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState } from 'react';
 
-const LoginContext = createContext({ isLoggedIn: false, toggleLogin: () => {} });
+export const LoginContext = createContext({ isLoggedIn: false, toggleLogin: () => {} });
 
 export const useLogin = () => {
     return useContext(LoginContext);
