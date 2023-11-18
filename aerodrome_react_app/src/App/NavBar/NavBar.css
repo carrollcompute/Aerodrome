@@ -9,6 +9,7 @@
   z-index: 100;
 }
 
+
 /* Center the title horizontally using flexbox */
 .navbar-title {
     display: flex;

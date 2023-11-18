@@ -7,7 +7,7 @@ const NavBar: React.FC = () => {
 
   // Mock state for user authentication. In a real application,
   // this state would be set based on the authentication system.
-  const {toggleLogin} = useLogin();
+  const { toggleLogin, isLoggedIn } = useLogin();
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -21,7 +21,10 @@ const NavBar: React.FC = () => {
           <Link to="/about" className="btn btn-primary m-2">About</Link>
           
           {/* Mock button to toggle the isLoggedIn state for demonstration purposes */}
-          <button onClick={() => toggleLogin()}>Toggle Login State</button>
+          <button 
+            className={`btn ${isLoggedIn ? 'btn-success' : 'btn-secondary'} m-2`}
+            onClick={() => toggleLogin()}>Toggle Login State
+          </button>
         </div>
       </div>
     </nav>
