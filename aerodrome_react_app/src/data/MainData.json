@@ -46,33 +46,5 @@
   "grande_anse": {
     "Name": "Grande Anse",
     "Status": "Active"
-  },
-  "remarques": {
-    "Name": "Remarques",
-    "Status": "Inactive"
-  },
-  "asr": {
-    "Name": "ASR",
-    "Status": "Active"
-  },
-  "ssr": {
-    "Name": "SSR",
-    "Status": "Inactive"
-  },
-  "par": {
-    "Name": "PAR",
-    "Status": "Active"
-  },
-  "ils": {
-    "Name": "ILS",
-    "Status": "Active"
-  },
-  "tacan": {
-    "Name": "TACAN",
-    "Status": "Inactive"
-  },
-  "ndb": {
-    "Name": "NDB",
-    "Status": "Active"
   }
 }

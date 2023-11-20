@@ -1,5 +1,5 @@
 import React from 'react';
-import aerodromeImage from '../../assets/Aerodrome.png';
+import aerodromeImage from '../../../assets/Aerodrome.png';
 import './AerodromeImage.css';
 
 const AerodromeImage: React.FC = () => {

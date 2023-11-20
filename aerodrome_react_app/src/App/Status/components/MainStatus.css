@@ -1,0 +1,56 @@
+/* MainStatus.css */
+.main-status-table {
+    width: 20%;
+    min-width: 200px;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .main-status-table th,
+  .main-status-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .mian-status-table th {
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .main-status-table tr:nth-child(even) { 
+    background-color: #f9f9f9;
+  }
+  
+  .main-status-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .main-status-table .status-active {
+    color: red;
+  }
+  
+  .main-status-table .status-inactive {
+    color: green;
+  }
+  
+  /* Style for select dropdowns in StatusForm */
+  .main-status-table select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  
+  .main-status-table select:focus {
+    outline: none;
+    border-color: blue;
+  }
+
+  .main-status-table select option[value="Inactive"] {
+    color: green;
+  }
+  
+  .main-status-table select option[value="Active"] {
+    color: red;
+  }
+  
