@@ -17,14 +17,24 @@ const NavBar: React.FC = () => {
           <span className="navbar-title-text">Aerodrome Status</span>
         </div>
         <div>
-          <Link to="/" className="btn btn-secondary m-2">Status Table</Link>
+          <Link to="/" className="btn btn-secondary m-2">Status</Link>
           <Link to="/about" className="btn btn-primary m-2">About</Link>
           
-          {/* Mock button to toggle the isLoggedIn state for demonstration purposes */}
-          <button 
-            className={`btn ${isLoggedIn ? 'btn-success' : 'btn-secondary'} m-2`}
-            onClick={() => toggleLogin()}>Toggle Login State
-          </button>
+          {isLoggedIn ? (
+            <button
+              className="btn btn-success m-2"
+              onClick={() => toggleLogin()}
+            >
+              Logout
+            </button>
+          ) : (
+            <button
+              className="btn btn-secondary m-2"
+              onClick={() => toggleLogin()}
+            >
+              Login
+            </button>
+          )}
         </div>
       </div>
     </nav>

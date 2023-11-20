@@ -57,5 +57,10 @@
 .nav-bar {
   color: black;
   background-color: black;
+  position: fixed; /* Fix the nav-bar at the top of the viewport */
+  top: 0; /* Align the nav-bar at the top */
+  left: 0; /* Align the nav-bar to the left */
+  width: 100%; /* Ensure the nav-bar spans the full width of the viewport */
+  z-index: 1000; /* Ensure the nav-bar stays above other content */
 }
 
