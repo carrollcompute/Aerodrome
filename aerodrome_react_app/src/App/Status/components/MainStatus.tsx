@@ -18,7 +18,7 @@ const MainStatusTable: React.FC<MainStatusTableComponentProps> = ({ data, childr
   <table className="main-status-table">
     <thead>
       <tr>
-        <th>Name</th>
+        <th></th>
         <th>Status</th>
       </tr>
     </thead>

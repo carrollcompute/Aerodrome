@@ -1,6 +1,6 @@
 /* Status.css */
 .status-view {
-  display: flex;
+  display:flex;
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
