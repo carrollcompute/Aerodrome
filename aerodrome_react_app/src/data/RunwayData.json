@@ -2,22 +2,22 @@
     "runway_1": 
       {
         "Name": "11/29",
-        "Condition": "Condition 1",
-        "CRFI": "CRFI 1",
+        "Condition": "Open",
+        "CRFI": "",
         "Precision": "RSC 18 6/6/6 150FT CL 100PCT DRY VALID NOV 21 1115 - NOV 21 1915"
       },
     "runway_2": 
       {
         "Name": "18/36 Nord",
-        "Condition": "Condition 2",
-        "CRFI": "CRFI 2",
+        "Condition": "Open",
+        "CRFI": "",
         "Precision": "RSC 18 6/6/6 150FT CL 100PCT DRY VALID NOV 21 1115 - NOV 21 1915"
       },
     "runway_3":
       {
         "Name": "18/36 Sud",
-        "Condition": "Condition 3",
-        "CRFI": "CRFI 3",
+        "Condition": "Closed",
+        "CRFI": "",
         "Precision": "RSC 18 6/6/6 150FT CL 100PCT DRY VALID NOV 21 1115 - NOV 21 1915"
       }
 

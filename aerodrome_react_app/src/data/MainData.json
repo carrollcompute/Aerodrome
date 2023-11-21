@@ -1,8 +1,4 @@
 {
-  "piste_active": {
-    "Name": "Piste Active",
-    "Status": "Active"
-  },
   "arff": {
     "Name": "ARFF",
     "Status": "Inactive"

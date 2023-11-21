@@ -1,6 +1,6 @@
 /* NavAidStatus.css */
 .navaid-status-table {
-    width: 30%; /* Adjusted for potentially more content */
+    width: 100%; /* Adjusted for potentially more content */
     min-width: 300px; /* Slightly larger minimum width */
     border-collapse: collapse;
     margin-top: 20px;
