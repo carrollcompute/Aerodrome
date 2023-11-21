@@ -1,0 +1,38 @@
+{
+    "ASR": 
+        {
+            "Name": "ASR",
+            "Details": "ASR Details",
+            "Return":""
+        },
+    "SSR":
+        {
+            "Name": "SSR",
+            "Details": "SSR Details",
+            "Return":""
+        },
+    "PAR":
+        {
+            "Name": "PAR",
+            "Details": "PAR Details",
+            "Return":""
+        },
+    "ILS":
+        {
+            "Name": "ILS",
+            "Details": "ILS Details",
+            "Return":""
+        },
+    "TACAN":
+        {
+            "Name": "TACAN",
+            "Details": "TACAN Details",
+            "Return":""
+        },
+    "NDB":
+        {
+            "Name": "NDB",
+            "Details": "NDB Details",
+            "Return":""
+        }
+}

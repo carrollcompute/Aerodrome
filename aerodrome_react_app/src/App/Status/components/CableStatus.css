@@ -1,9 +1,7 @@
 /* CableStatus.css */
 .cable-status {
-    display:inline-block;
     width: 50%;
 }
-
 
 .title {
     font-size: 1.5em;
