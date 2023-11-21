@@ -15,24 +15,27 @@ interface MainStatusTableComponentProps {
 }
 
 const MainStatusTable: React.FC<MainStatusTableComponentProps> = ({ data, children }) => (
-  <table className="main-status-table">
-    <thead>
-      <tr>
-        <th></th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      {Object.entries(data).map(([key, item]) => (
-        <tr key={key}>
-          <td>{item.Name}</td>
-          <td className={`status-${item.Status.toLowerCase()}`}>
-            {children(item, key)}
-          </td>
+  <div>
+    <h3>Main Status</h3>
+    <table className="main-status-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Status</th>
         </tr>
-      ))}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {Object.entries(data).map(([key, item]) => (
+          <tr key={key}>
+            <td>{item.Name}</td>
+            <td className={`status-${item.Status.toLowerCase()}`}>
+              {children(item, key)}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
 );
 
 const STATUS_ACTIVE = 'Active';

@@ -1,8 +1,9 @@
 import React from 'react';
+import  "./Status.css";
 import MainStatus from './components/MainStatus'; 
 import AerodromeImage from './components/AerodromeImage'; 
 import CableStatus from './components/CableStatus';
-import  "./Status.css";
+import RunwayStatus from './components/RunwayStatus';
 
 
 const Status: React.FC = () => {
@@ -11,7 +12,10 @@ const Status: React.FC = () => {
     <div className='status-view'>
       <MainStatus/>
       <AerodromeImage />
-      <CableStatus />
+      <div className='runway-cable-status-view'>
+        <RunwayStatus />
+        <CableStatus />
+      </div>
     </div>
   );
 }

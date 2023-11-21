@@ -1,23 +1,25 @@
 {
-    "runways": [
+    "runway_1": 
       {
-        "name": "11/29",
+        "Name": "11/29",
         "Condition": "Condition 1",
         "CRFI": "CRFI 1",
         "Precision": "Precision 1"
       },
+    "runway_2": 
       {
-        "name": "18/36 Nord",
+        "Name": "18/36 Nord",
         "Condition": "Condition 2",
         "CRFI": "CRFI 2",
         "Precision": "Precision 2"
       },
+    "runway_3":
       {
-        "name": "18/36 Sud",
+        "Name": "18/36 Sud",
         "Condition": "Condition 3",
         "CRFI": "CRFI 3",
         "Precision": "Precision 3"
       }
-    ]
+
   }
   

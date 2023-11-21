@@ -15,24 +15,27 @@ interface CableStatusTableComponentProps {
 }
 
 const CableStatusTable: React.FC<CableStatusTableComponentProps> = ({ data, children }) => (
-  <table className="cable-status-table">
-    <thead>
-      <tr>
-        <th>Cable</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      {Object.entries(data).map(([key, item]) => (
-        <tr key={key}>
-          <td>{item.Name}</td>
-          <td className={`status-${item.Condition.toLowerCase()}`}>
-            {children(item, key)}
-          </td>
+  <div className="cable-status">
+    <h3 className="title">Cable Status</h3>
+    <table className="cable-status-table">
+      <thead>
+        <tr>
+          <th>Cable</th>
+          <th>Condition</th>
         </tr>
-      ))}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {Object.entries(data).map(([key, item]) => (
+          <tr key={key}>
+            <td>{item.Name}</td>
+            <td className={`status-${item.Condition.toLowerCase()}`}>
+              {children(item, key)}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
 );
 
 const CONDITION_UP = "Up";
