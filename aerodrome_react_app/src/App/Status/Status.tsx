@@ -10,8 +10,12 @@ const Status: React.FC = () => {
 
   return (
     <div className='status-view'>
-      <MainStatus/>
-      <AerodromeImage />
+      <div className='main-status-view'>
+        <MainStatus/>
+      </div>
+      <div className='aerodrome-image-view'>
+        <AerodromeImage />
+      </div>
       <div className='runway-cable-status-view'>
         <RunwayStatus />
         <CableStatus />
