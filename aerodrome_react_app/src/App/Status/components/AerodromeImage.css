@@ -3,7 +3,6 @@
     width: 100%;          /* Adjust as per your desired size */
     height: auto;          /* Maintains aspect ratio */
     border-radius: 15px;   /* Rounds the corners */
-    margin-bottom: 30px;
 }
 
 .aerodrome-image-container {

@@ -7,12 +7,16 @@
     "Name": "Act Aviaire Locale",
     "Status": "Active"
   },
-  "sar_statut": {
-    "Name": "SAR Statut",
+  "act_aviaire_migratoire": {
+    "Name": "Act Aviaire Migratoire",
+    "Status": "Active"
+  },
+  "base_rescue": {
+    "Name": "Base Rescue",
     "Status": "Inactive"
   },
-  "sar_statut_ytr": {
-    "Name": "SAR Statut YTR",
+  "circuit": {
+    "Name": "Circuit",
     "Status": "Active"
   },
   "champ_tir_9mm": {
@@ -23,17 +27,13 @@
     "Name": "Champ Planeur",
     "Status": "Inactive"
   },
-  "circuit": {
-    "Name": "Circuit",
-    "Status": "Active"
-  },
-  "act_aviaire_migratoire": {
-    "Name": "Act Aviaire Migratoire",
-    "Status": "Active"
-  },
-  "base_rescue": {
-    "Name": "Base Rescue",
+  "sar_statut": {
+    "Name": "SAR Statut",
     "Status": "Inactive"
+  },
+  "sar_statut_ytr": {
+    "Name": "SAR Statut YTR",
+    "Status": "Active"
   },
   "sar_statut_yzx": {
     "Name": "SAR Statut YZX",
