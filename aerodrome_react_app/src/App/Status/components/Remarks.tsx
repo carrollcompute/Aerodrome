@@ -1,5 +1,5 @@
 import React, { useState, useContext, useCallback } from 'react';
-import './Remarks.css'; // You can style it as needed
+import './Remarks.css'; 
 import remarksData from '../../../data/RemarksData.json';
 import { LoginContext } from '../../LoginContext';
 
@@ -20,7 +20,7 @@ const RemarksTable: React.FC<{ remarks: string }> = ({ remarks }) => (
 );
 
 const EditableRemarks: React.FC<{ remarks: string; onRemarksChange: (newRemarks: string) => void }> = ({ remarks, onRemarksChange }) => (
-  <textarea value={remarks} onChange={(e) => onRemarksChange(e.target.value)} />
+  <textarea className="text-box" value={remarks} onChange={(e) => onRemarksChange(e.target.value)} />
 );
 
 const Remarks: React.FC = () => {

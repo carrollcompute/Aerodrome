@@ -1,26 +1,26 @@
 /* Status.css */
-.status-view {
+.status-page-view {
   display:flex;
   width: 100%;
   border-collapse: collapse;
   gap: 5em;
 }
 
-.main-status-view {
+.left-view {
   display:inline-block;
   width: 33%;
   border-collapse: collapse;
   gap: 5em;
 }
 
-.aerodrome-image-view {
+.center-view {
   display:inline-block;
   width: 33%;
   border-collapse: collapse;
   gap: 5em;
 }
 
-.runway-cable-status-view {
+.right-view {
   display:inline-block;
   width: 33%;
   border-collapse: collapse;
