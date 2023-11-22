@@ -16,7 +16,7 @@ interface MainStatusTableComponentProps {
 
 const MainStatusTable: React.FC<MainStatusTableComponentProps> = ({ data, children }) => (
   <div>
-    <h3>Main Status</h3>
+    <h3 className='title'>Main Status</h3>
     <table className="main-status-table">
       <thead>
         <tr>

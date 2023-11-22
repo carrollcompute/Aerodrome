@@ -16,7 +16,7 @@ interface CableStatusTableComponentProps {
 
 const CableStatusTable: React.FC<CableStatusTableComponentProps> = ({ data, children }) => (
   <div className="cable-status">
-    <h3 className="title">Cable Status</h3>
+    <div className="cable-table-title">Cable Status</div>
     <table className="cable-status-table">
       <thead>
         <tr>

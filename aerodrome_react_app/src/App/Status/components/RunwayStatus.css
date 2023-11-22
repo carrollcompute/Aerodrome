@@ -1,11 +1,18 @@
 /* RunwayStatus.css */
+.runway-status{
+    width: 100%;
+}
+
+.runway-title{
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+
 .runway-status-table {
     width: 100%;
-    min-width: 250px;
     border-collapse: collapse;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    height: 150px;
+    margin-bottom: 20px;
 }
 
 .runway-status-table th,
@@ -13,7 +20,6 @@
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
-    height: 30px;
 }
 
 .runway-status-table th {

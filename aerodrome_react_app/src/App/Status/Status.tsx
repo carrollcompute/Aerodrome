@@ -6,6 +6,7 @@ import CableStatus from './components/CableStatus';
 import RunwayStatus from './components/RunwayStatus';
 import NavAidStatus from './components/NavAidStatus';
 import Remarks from './components/Remarks';
+import PirepsStatus from './components/PirepsStatus';
 
 
 const Status: React.FC = () => {
@@ -14,15 +15,18 @@ const Status: React.FC = () => {
     <div className='status-page-view'>
       <div className='left-view'>
         <MainStatus/>
+        <PirepsStatus />
       </div>
       <div className='center-view'>
         <AerodromeImage />
         <Remarks />
-        <NavAidStatus />
       </div>
       <div className='right-view'>
         <RunwayStatus />
-        <CableStatus />
+        <div className='coupled-view'>
+          <CableStatus />
+          <NavAidStatus />
+        </div>
       </div>
     </div>
   );

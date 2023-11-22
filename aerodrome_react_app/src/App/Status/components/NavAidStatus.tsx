@@ -15,27 +15,27 @@ interface NavAidStatusTableComponentProps {
 }
 
 const NavAidStatusTable: React.FC<NavAidStatusTableComponentProps> = ({ data, children }) => (
-  <div>
-    <h3>NavAid Status</h3>
-    <table className="navaid-status-table">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Details</th>
-            <th>Return to Operations</th>
-        </tr>
-        </thead>
-        <tbody>
-        {Object.entries(data).map(([key, item]) => (
-            <tr key={key}>
-            <td>{item.Name}</td>
-            <td>{item.Details}</td>
-            <td>{children(item, key)}</td>
-            </tr>
-        ))}
-        </tbody>
-    </table>
-  </div>
+    <div className="navaid-status">
+      <div className="navaid-title">NavAids</div>
+      <table className="navaid-status-table">
+          <thead>
+          <tr>
+              <th className='name-col'>Name</th>
+              <th>Details</th>
+              <th>Return to Operations</th>
+          </tr>
+          </thead>
+          <tbody>
+          {Object.entries(data).map(([key, item]) => (
+              <tr key={key}>
+              <td className='name-col'>{item.Name}</td>
+              <td>{item.Details}</td>
+              <td>{children(item, key)}</td>
+              </tr>
+          ))}
+          </tbody>
+      </table>
+    </div>
 );
 
 const ReturnSelector: React.FC<{ returnVal: string; onChange: (newReturn: string) => void }> = ({ returnVal, onChange }) => (

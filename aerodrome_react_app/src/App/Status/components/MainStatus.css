@@ -3,7 +3,7 @@
     width: 100%;
     min-width: 250px;
     border-collapse: collapse;
-    margin-top: 20px;
+    border-radius: 30px;
   }
   
   .main-status-table th,
@@ -14,11 +14,11 @@
     height: 30px;
   }
   
-  .mian-status-table th {
+  .main-status-table th {
     background-color: #f4f4f4;
     color: #333;
   }
-  
+
   .main-status-table tr:nth-child(even) { 
     background-color: #f9f9f9;
   }
@@ -55,3 +55,8 @@
     color: red;
   }
   
+  .title{
+    font-weight: bold;
+    font-size: large;
+    position: center;
+  }

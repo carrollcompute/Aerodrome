@@ -17,8 +17,8 @@ interface RunwayStatusTableComponentProps {
 }
 
 const RunwayStatusTable: React.FC<RunwayStatusTableComponentProps> = ({ data, children }) => (
-  <div>
-    <h3>Runway Status</h3>
+  <div className="runway-status">
+    <div className="runway-title">Runway Status</div>
     <table className="runway-status-table">
         <thead>
         <tr>

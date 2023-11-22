@@ -1,10 +1,19 @@
 /* NavAidStatus.css */
+.navaid-status {
+    width: 100%;
+    overflow: auto;
+}
+
+.navaid-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center; /* Use text-align instead of position for centering */
+}
+
 .navaid-status-table {
-    width: 100%; /* Adjusted for potentially more content */
-    min-width: 300px; /* Slightly larger minimum width */
+    width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
-    height: auto; /* Set to auto to accommodate variable content */
+    table-layout: fixed; /* Fix table layout to prevent overlapping */
 }
 
 .navaid-status-table th,
@@ -12,7 +21,6 @@
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
-    height: 40px; /* Adjusted for potential more content in each row */
 }
 
 .navaid-status-table th {
@@ -20,12 +28,19 @@
     color: #333;
 }
 
-.navaid-status-table tr:nth-child(even) { 
+.navaid-status-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
 .navaid-status-table tr:hover {
     background-color: #f1f1f1;
+}
+
+/* Define a specific width for the Name column header and cells */
+.navaid-status-table th.name-col,
+.navaid-status-table td.name-col {
+    width: 80px; /* Adjust the width as needed */
+    /* Add any other styling you want for this column */
 }
 
 /* Style for select dropdowns in NavAidStatusForm */

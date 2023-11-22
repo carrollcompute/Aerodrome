@@ -1,0 +1,17 @@
+{
+    "Pireps":[
+    {
+      "timeReceived": "2023-11-22T12:00:00Z",
+      "details": "Clear skies, no turbulence",
+      "aircraftTypeAndLocation": "Boeing 737 - Near Chicago"
+    },
+    {
+      "timeReceived": "2023-11-22T14:30:00Z",
+      "details": "Light rain, moderate turbulence",
+      "aircraftTypeAndLocation": "Airbus A320 - Above Atlanta"
+    }
+]
+}
+
+
+  

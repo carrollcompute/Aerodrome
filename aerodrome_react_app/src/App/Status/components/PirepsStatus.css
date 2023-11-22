@@ -1,0 +1,73 @@
+/* PirepsStatus.css */
+.pireps-status {
+    width: 100%; /* Full width to utilize available space */
+    margin-top: 20px; /* Consistent top margin */
+}
+
+.pireps-title{
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.pireps-table {
+    width: 100%;
+    min-width: 300px; /* Minimum width for readability */
+    border-collapse: collapse;
+    margin-top: 10px; /* Space between title and table */
+    height: auto; /* Auto height for varying content */
+}
+
+.pireps-table th,
+.pireps-table td {
+    border: 1px solid #ddd; /* Consistent border styling */
+    padding: 8px; /* Comfortable padding */
+    text-align: left; /* Left align for readability */
+    height: 40px; /* Uniform row height */
+}
+
+.pireps-table th {
+    background-color: #f4f4f4; /* Light gray header for distinction */
+    color: #333; /* Dark text for contrast */
+}
+
+.pireps-table tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternating row colors for readability */
+}
+
+.pireps-table tr:hover {
+    background-color: #f1f1f1; /* Hover effect for interaction feedback */
+}
+
+/* Style for form elements in editable mode */
+.pireps-status form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.pireps-status input[type="text"],
+.pireps-status textarea {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.pireps-status input[type="text"]:focus,
+.pireps-status textarea:focus {
+    outline: none;
+    border-color: blue;
+}
+
+.pireps-status button {
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pireps-status button:hover {
+    background-color: #f1f1f1;
+}
