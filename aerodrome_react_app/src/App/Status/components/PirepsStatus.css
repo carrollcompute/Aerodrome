@@ -12,7 +12,6 @@
 
 .pireps-table {
     width: 100%;
-    min-width: 300px; /* Minimum width for readability */
     border-collapse: collapse;
     margin-top: 10px; /* Space between title and table */
     height: auto; /* Auto height for varying content */

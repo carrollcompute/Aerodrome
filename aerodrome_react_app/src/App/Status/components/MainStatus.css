@@ -19,6 +19,11 @@
     color: #333;
   }
 
+  .main-status-table th.first-col,
+  .main-status-table td.first-col {
+    width: 135px;
+  }
+
   .main-status-table tr:nth-child(even) { 
     background-color: #f9f9f9;
   }

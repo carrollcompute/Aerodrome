@@ -20,14 +20,14 @@ const MainStatusTable: React.FC<MainStatusTableComponentProps> = ({ data, childr
     <table className="main-status-table">
       <thead>
         <tr>
-          <th></th>
+          <th className='first-col'></th>
           <th>Status</th>
         </tr>
       </thead>
       <tbody>
         {Object.entries(data).map(([key, item]) => (
           <tr key={key}>
-            <td>{item.Name}</td>
+            <td className='first-col'>{item.Name}</td>
             <td className={`status-${item.Status.toLowerCase()}`}>
               {children(item, key)}
             </td>
