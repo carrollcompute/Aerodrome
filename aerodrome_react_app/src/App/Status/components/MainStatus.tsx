@@ -1,6 +1,7 @@
-import React, { useState, useCallback, useContext } from 'react';
+import React, { useState, useCallback, useContext, useEffect } from 'react';
 import './MainStatus.css';
 import mainStatusData from '../../../data/MainData.json';
+import selectionOptions from '../../../data/Selection_options.json';
 import { LoginContext } from '../../LoginContext';
 
 
@@ -38,18 +39,23 @@ const MainStatusTable: React.FC<MainStatusTableComponentProps> = ({ data, childr
   </div>
 );
 
-const STATUS_ACTIVE = 'Active';
-const STATUS_INACTIVE = 'Inactive';
-
-const StatusSelector: React.FC<{ status: string; onChange: (newStatus: string) => void }> = ({ status, onChange }) => (
+const StatusSelector: React.FC<{ status: string; options: string[]; onChange: (newStatus: string) => void }> = ({ status, options, onChange }) => (
   <select value={status} onChange={(e) => onChange(e.target.value)}>
-    <option value={STATUS_ACTIVE}>{STATUS_ACTIVE}</option>
-    <option value={STATUS_INACTIVE}>{STATUS_INACTIVE}</option>
+    {options.map((option, index) => (
+      <option key={index} value={option}>{option}</option>
+    ))}
   </select>
 );
 
 const MStatusForm: React.FC<{ data: { [key: string]: StatusItem } }> = ({ data }) => {
   const [statusData, setStatusData] = useState<{ [key: string]: StatusItem }>(data);
+
+  // Load status options from the JSON file
+  const [statusOptions, setStatusOptions] = useState<{ [key: string]: string[] }>({});
+  
+  useEffect(() => {
+    setStatusOptions(selectionOptions.Main_status);
+  }, []);
 
   const handleStatusChange = useCallback((key: string, newStatus: string) => {
     setStatusData(prevData => ({
@@ -64,13 +70,18 @@ const MStatusForm: React.FC<{ data: { [key: string]: StatusItem } }> = ({ data }
   return (
     <form>
       <MainStatusTable data={statusData}>
-        {(item, key) => <StatusSelector key={key} status={item.Status} onChange={(newStatus) => handleStatusChange(key, newStatus)} />}
+        {(item, key) => (
+          <StatusSelector
+            key={key}
+            status={item.Status}
+            options={statusOptions[key] || []}
+            onChange={(newStatus) => handleStatusChange(key, newStatus)}
+          />
+        )}
       </MainStatusTable>
     </form>
   );
 };
-
-
 
 const MStatusTable: React.FC<{ data: { [key: string]: StatusItem } }> = ({ data }) => (
   <MainStatusTable data={data}>

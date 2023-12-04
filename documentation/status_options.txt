@@ -1,0 +1,62 @@
+Main_status:
+    piste_active: 11, 18, 29, 36 
+    arff: CAT-5, CAT-4, CAT-3, CAT-2, CAT-1
+    act_aviaire_locale: Faible, Moyen, Extrême
+    sar_statut: Vert, Jaune, Rouge
+    sar_statut_ytr: Vert, Jaune, Rouge
+    champ_tir_9mm: Inactif, Actif
+    champ_planeur: Ianctif, Actif
+    circuit: Ouvert, Fermé
+    act_aviaire_migratoire: Faible, Moyen, Extrême
+    base_rescue: Vert, Jaune, Rouge
+    sar_statut_yzx: Vert, Jaune, Rouge
+    grande_anse: Inactif, Actif
+
+
+runway_conditions:
+    11/29:
+        Condition: Ouvert, Fermé
+        CRFI: String
+        Precision: String
+
+    18/36 Nord:
+        Condition: Ouvert, Fermé
+        CRFI: String
+        Precision: String
+
+    18/36 Sud:
+        Condition: Ouvert, Fermé
+        CRFI: String
+        Precision: String
+
+Cable_conditions:
+    Est: Up, Down
+    Ouest: Up, Down
+    Sud: Up, Down
+
+Action_de_freinage:
+    11/29:
+        Heure: String
+        Details: String
+        Type d'avion: String
+    18/36:
+        Heure: String
+        Details: String
+        Type d'avion: String
+
+
+NavAids:
+    ASR: En Service, Hors Service
+    SSR: En Service, Hors Service
+    PAR: En Service, Hors Service
+    ILS: En Service, Hors Service
+    TACAN: En Service, Hors Service
+    NDB: En Service, Hors Service
+
+
+PIREPS:
+    Temps reçu: String
+    Details: String
+    Type d'avion: String
+
+remarques: String
