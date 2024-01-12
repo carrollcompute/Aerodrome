@@ -1,7 +1,6 @@
-import React, { useState, useCallback, useContext, useEffect } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 import './CableStatus.css';
 import cableStatusData from '../../../data/CableData.json';
-import selectionOptions from '../../../data/Selection_options.json';
 import { LoginContext } from '../../LoginContext';
 
 
@@ -39,24 +38,18 @@ const CableStatusTable: React.FC<CableStatusTableComponentProps> = ({ data, chil
   </div>
 );
 
-const ConditionSelector: React.FC<{ condition: string; options: string[]; onChange: (newCondition: string) => void }> = ({ condition, options, onChange }) => (
+const CONDITION_UP = "Up";
+const CONDITION_DOWN = "Down";
+
+const ConditionSelector: React.FC<{ condition: string; onChange: (newCondition: string) => void }> = ({ condition, onChange }) => (
   <select value={condition} onChange={(e) => onChange(e.target.value)}>
-    {options.map((option, index) => (
-      <option key={index} value={option}>{option}</option>
-    ))}
+    <option value={CONDITION_UP}>{CONDITION_UP}</option>
+    <option value={CONDITION_DOWN}>{CONDITION_DOWN}</option>
   </select>
 );
 
 const CStatusForm: React.FC<{ data: { [key: string]: ConditionItem } }> = ({ data }) => {
   const [statusData, setStatusData] = useState<{ [key: string]: ConditionItem }>(data);
-
-  // Load condition options from the JSON file
-  const [conditionOptions, setConditionOptions] = useState<string[]>([]);
-  
-  useEffect(() => {
-    const options = selectionOptions.Cable_conditions ? Object.values(selectionOptions.Cable_conditions) : [];
-    setConditionOptions(options);
-  }, []);
 
   const handleConditionChange = useCallback((key: string, newCondition: string) => {
     setStatusData(prevData => ({
@@ -70,15 +63,14 @@ const CStatusForm: React.FC<{ data: { [key: string]: ConditionItem } }> = ({ dat
 
   return (
     <form>
-      <CableStatusTable data={statusData}>
-        {(item, key) => (
-          <ConditionSelector
-            condition={item.Condition}
-            options={conditionOptions}
-            onChange={(newCondition) => handleConditionChange(key, newCondition)}
-          />
-        )}
-      </CableStatusTable>
+        <CableStatusTable data={statusData}>
+            {(item, key) => (
+                <ConditionSelector
+                condition={item.Condition}
+                onChange={(newCondition) => handleConditionChange(key, newCondition)}
+                />
+                )}
+        </CableStatusTable>
     </form>
   );
 };

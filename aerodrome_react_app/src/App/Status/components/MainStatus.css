@@ -21,7 +21,7 @@
 
   .main-status-table th.first-col,
   .main-status-table td.first-col {
-    width: 150px;
+    width: 135px;
   }
 
   .main-status-table tr:nth-child(even) { 

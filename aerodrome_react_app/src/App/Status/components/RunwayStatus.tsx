@@ -1,7 +1,6 @@
-import React, { useState, useCallback, useContext, useEffect } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 import './RunwayStatus.css';
 import runwayStatusData from '../../../data/RunwayData.json';
-import selectionOptions from '../../../data/Selection_options.json';
 import { LoginContext } from '../../LoginContext';
 
 
@@ -45,25 +44,18 @@ const RunwayStatusTable: React.FC<RunwayStatusTableComponentProps> = ({ data, ch
   </div>
 );
 
-const ConditionSelector: React.FC<{ condition: string; options: string[]; onChange: (newCondition: string) => void }> = ({ condition, options, onChange }) => (
+const CONDITION_OPEN = "Open";
+const CONDITION_CLOSED = "Closed";
+
+const ConditionSelector: React.FC<{ condition: string; onChange: (newCondition: string) => void }> = ({ condition, onChange }) => (
   <select value={condition} onChange={(e) => onChange(e.target.value)}>
-    {options.map((option, index) => (
-      <option key={index} value={option}>{option}</option>
-    ))}
+    <option value={CONDITION_OPEN}>{CONDITION_OPEN}</option>
+    <option value={CONDITION_CLOSED}>{CONDITION_CLOSED}</option>
   </select>
 );
 
 const RStatusForm: React.FC<{ data: { [key: string]: RunwayItem } }> = ({ data }) => {
   const [statusData, setStatusData] = useState<{ [key: string]: RunwayItem }>(data);
-
-  // Load condition options from the JSON file
-  const [conditionOptions, setConditionOptions] = useState<string[]>([]);
-  
-  useEffect(() => {
-    // Load condition options for runway_conditions
-    const options = selectionOptions.runway_conditions ? selectionOptions.runway_conditions.Condition : [];
-    setConditionOptions(options);
-  }, []);
 
   const handleConditionChange = useCallback((key: string, newCondition: string) => {
     setStatusData(prevData => ({
@@ -77,15 +69,14 @@ const RStatusForm: React.FC<{ data: { [key: string]: RunwayItem } }> = ({ data }
 
   return (
     <form>
-      <RunwayStatusTable data={statusData}>
-        {(item, key) => (
-          <ConditionSelector
-            condition={item.Condition}
-            options={conditionOptions}
-            onChange={(newCondition) => handleConditionChange(key, newCondition)}
-          />
-        )}
-      </RunwayStatusTable>
+        <RunwayStatusTable data={statusData}>
+            {(item, key) => (
+                <ConditionSelector
+                condition={item.Condition}
+                onChange={(newCondition) => handleConditionChange(key, newCondition)}
+                />
+            )}
+        </RunwayStatusTable>
     </form>
   );
 };
