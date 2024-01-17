@@ -2,7 +2,7 @@ import './App.css'
 import NavBar from './NavBar/NavBar';
 import About from './About/About';
 import Status from './Status/Status';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { LoginProvider } from './LoginContext';
 
 
